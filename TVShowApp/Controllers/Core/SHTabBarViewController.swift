@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Controller to house tabs and root tab controller
 final class SHTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
