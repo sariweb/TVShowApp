@@ -22,6 +22,9 @@
 		85EC409C2A9B086D00BD6C59 /* SHService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC409B2A9B086D00BD6C59 /* SHService.swift */; };
 		85EC409E2A9B089100BD6C59 /* SHRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC409D2A9B089100BD6C59 /* SHRequest.swift */; };
 		85EC40A02A9B09BA00BD6C59 /* SHEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC409F2A9B09BA00BD6C59 /* SHEndpoint.swift */; };
+		85EC40A22A9B10F500BD6C59 /* SHOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40A12A9B10F500BD6C59 /* SHOrigin.swift */; };
+		85EC40A42A9B15EF00BD6C59 /* SHCharacterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40A32A9B15EF00BD6C59 /* SHCharacterStatus.swift */; };
+		85EC40A62A9B189E00BD6C59 /* SHCharacterGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40A52A9B189E00BD6C59 /* SHCharacterGender.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		85EC409B2A9B086D00BD6C59 /* SHService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHService.swift; sourceTree = "<group>"; };
 		85EC409D2A9B089100BD6C59 /* SHRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHRequest.swift; sourceTree = "<group>"; };
 		85EC409F2A9B09BA00BD6C59 /* SHEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHEndpoint.swift; sourceTree = "<group>"; };
+		85EC40A12A9B10F500BD6C59 /* SHOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHOrigin.swift; sourceTree = "<group>"; };
+		85EC40A32A9B15EF00BD6C59 /* SHCharacterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterStatus.swift; sourceTree = "<group>"; };
+		85EC40A52A9B189E00BD6C59 /* SHCharacterGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterGender.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +105,10 @@
 			children = (
 				85EC408C2A9A1EAF00BD6C59 /* SHLocation.swift */,
 				85EC408E2A9A1EBD00BD6C59 /* SHCharacter.swift */,
+				85EC40A52A9B189E00BD6C59 /* SHCharacterGender.swift */,
+				85EC40A32A9B15EF00BD6C59 /* SHCharacterStatus.swift */,
 				85EC40902A9A1ECB00BD6C59 /* SHEpisode.swift */,
+				85EC40A12A9B10F500BD6C59 /* SHOrigin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,17 +239,20 @@
 			files = (
 				85EC40762A9A1C7A00BD6C59 /* SHTabBarViewController.swift in Sources */,
 				85EC40962A9A1FB000BD6C59 /* SHCharactersViewController.swift in Sources */,
+				85EC40A42A9B15EF00BD6C59 /* SHCharacterStatus.swift in Sources */,
 				85EC409E2A9B089100BD6C59 /* SHRequest.swift in Sources */,
 				85EC40722A9A1C7A00BD6C59 /* AppDelegate.swift in Sources */,
 				85EC40982A9A1FBC00BD6C59 /* SHEpisodesViewController.swift in Sources */,
 				85EC40742A9A1C7A00BD6C59 /* SceneDelegate.swift in Sources */,
 				85EC408F2A9A1EBD00BD6C59 /* SHCharacter.swift in Sources */,
 				85EC409A2A9A1FC900BD6C59 /* SHSettingsViewController.swift in Sources */,
+				85EC40A22A9B10F500BD6C59 /* SHOrigin.swift in Sources */,
 				85EC40912A9A1ECB00BD6C59 /* SHEpisode.swift in Sources */,
 				85EC409C2A9B086D00BD6C59 /* SHService.swift in Sources */,
 				85EC40A02A9B09BA00BD6C59 /* SHEndpoint.swift in Sources */,
 				85EC40942A9A1FA200BD6C59 /* SHLocationsViewController.swift in Sources */,
 				85EC408D2A9A1EAF00BD6C59 /* SHLocation.swift in Sources */,
+				85EC40A62A9B189E00BD6C59 /* SHCharacterGender.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
