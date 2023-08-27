@@ -19,7 +19,7 @@ final class SHRequest {
     private let endpoint: SHEndpoint
     
     /// Path components for API if any
-    private let pathComponents: Set<String>
+    private let pathComponents: [String]
     
     /// Query parameters for API if any
     private let queryParameters: [URLQueryItem]
@@ -62,10 +62,14 @@ final class SHRequest {
     ///   - pathComponents: Collection of path components
     ///   - queryParameters: Collection for query parameters
     init(endpoint: SHEndpoint,
-         pathComponents: Set<String> = [],
+         pathComponents: [String] = [],
          queryParameters: [URLQueryItem] = []) {
         self.endpoint = endpoint
         self.pathComponents = pathComponents
         self.queryParameters = queryParameters
     }
+}
+
+extension SHRequest {
+    static let listCharacterRequests = SHRequest(endpoint: .character)
 }
