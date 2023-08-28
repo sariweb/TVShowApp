@@ -10,19 +10,25 @@ import UIKit
 /// Controller to show and search for characters
 final class SHCharactersViewController: UIViewController {
 
+    private let characterListView = SHCharacterListView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Characters"
         
-        SHService.shared.execute(.listCharacterRequests, expecting: SHGetCharactersResponse.self) { result in
-            switch result {
-                case .success(let model):
-                    print(String(describing: model))
-                case .failure(let error):
-                    print(String(describing: error))
-            }
-        }
+        setupView()
+    }
+    
+    private func setupView() {
+        view.addSubview(characterListView)
+        
+        NSLayoutConstraint.activate([
+            characterListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            characterListView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            characterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            characterListView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+        ])
     }
 
 }

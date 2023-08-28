@@ -26,6 +26,9 @@
 		85EC40A42A9B15EF00BD6C59 /* SHCharacterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40A32A9B15EF00BD6C59 /* SHCharacterStatus.swift */; };
 		85EC40A62A9B189E00BD6C59 /* SHCharacterGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40A52A9B189E00BD6C59 /* SHCharacterGender.swift */; };
 		85EC40AA2A9B30F300BD6C59 /* SHGetAllCharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40A92A9B30F300BD6C59 /* SHGetAllCharactersResponse.swift */; };
+		85EC40AC2A9B3BA000BD6C59 /* SHCharacterListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40AB2A9B3BA000BD6C59 /* SHCharacterListViewViewModel.swift */; };
+		85EC40AE2A9B3C3700BD6C59 /* SHCharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40AD2A9B3C3700BD6C59 /* SHCharacterListView.swift */; };
+		85EC40B02A9C4F2800BD6C59 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40AF2A9C4F2800BD6C59 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		85EC40A32A9B15EF00BD6C59 /* SHCharacterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterStatus.swift; sourceTree = "<group>"; };
 		85EC40A52A9B189E00BD6C59 /* SHCharacterGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterGender.swift; sourceTree = "<group>"; };
 		85EC40A92A9B30F300BD6C59 /* SHGetAllCharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHGetAllCharactersResponse.swift; sourceTree = "<group>"; };
+		85EC40AB2A9B3BA000BD6C59 /* SHCharacterListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterListViewViewModel.swift; sourceTree = "<group>"; };
+		85EC40AD2A9B3C3700BD6C59 /* SHCharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterListView.swift; sourceTree = "<group>"; };
+		85EC40AF2A9C4F2800BD6C59 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,7 @@
 		85EC40872A9A1D7400BD6C59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				85EC40AD2A9B3C3700BD6C59 /* SHCharacterListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +128,7 @@
 		85EC40882A9A1D7D00BD6C59 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				85EC40AB2A9B3BA000BD6C59 /* SHCharacterListViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -149,6 +157,7 @@
 				85EC40732A9A1C7A00BD6C59 /* SceneDelegate.swift */,
 				85EC407A2A9A1C7C00BD6C59 /* Assets.xcassets */,
 				85EC407C2A9A1C7C00BD6C59 /* LaunchScreen.storyboard */,
+				85EC40AF2A9C4F2800BD6C59 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -260,15 +269,18 @@
 				85EC40962A9A1FB000BD6C59 /* SHCharactersViewController.swift in Sources */,
 				85EC40A42A9B15EF00BD6C59 /* SHCharacterStatus.swift in Sources */,
 				85EC409E2A9B089100BD6C59 /* SHRequest.swift in Sources */,
+				85EC40AC2A9B3BA000BD6C59 /* SHCharacterListViewViewModel.swift in Sources */,
 				85EC40722A9A1C7A00BD6C59 /* AppDelegate.swift in Sources */,
 				85EC40982A9A1FBC00BD6C59 /* SHEpisodesViewController.swift in Sources */,
 				85EC40AA2A9B30F300BD6C59 /* SHGetAllCharactersResponse.swift in Sources */,
 				85EC40742A9A1C7A00BD6C59 /* SceneDelegate.swift in Sources */,
+				85EC40AE2A9B3C3700BD6C59 /* SHCharacterListView.swift in Sources */,
 				85EC408F2A9A1EBD00BD6C59 /* SHCharacter.swift in Sources */,
 				85EC409A2A9A1FC900BD6C59 /* SHSettingsViewController.swift in Sources */,
 				85EC40A22A9B10F500BD6C59 /* SHOrigin.swift in Sources */,
 				85EC40912A9A1ECB00BD6C59 /* SHEpisode.swift in Sources */,
 				85EC409C2A9B086D00BD6C59 /* SHService.swift in Sources */,
+				85EC40B02A9C4F2800BD6C59 /* Extensions.swift in Sources */,
 				85EC40A02A9B09BA00BD6C59 /* SHEndpoint.swift in Sources */,
 				85EC40942A9A1FA200BD6C59 /* SHLocationsViewController.swift in Sources */,
 				85EC408D2A9A1EAF00BD6C59 /* SHLocation.swift in Sources */,
