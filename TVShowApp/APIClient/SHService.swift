@@ -28,25 +28,25 @@ final class SHService {
     public func execute<T: Codable>(
         _ request: SHRequest,
         expecting type: T.Type,
-        complition: @escaping (Result<T, Error>) -> Void
+        completion: @escaping (Result<T, Error>) -> Void
     ) {
         guard let urlRequest = self.request(from: request) else {
-            complition(.failure(SHServiceError.failedToCreateRequest))
+            completion(.failure(SHServiceError.failedToCreateRequest))
             return
         }
         
         let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             guard let data = data, error == nil else {
-                complition(.failure(error ?? SHServiceError.failedToGetData))
+                completion(.failure(error ?? SHServiceError.failedToGetData))
                 return
             }
             
             do {
                 let result = try JSONDecoder().decode(type.self, from: data)
-                complition(.success(result))
+                completion(.success(result))
             }
             catch {
-                complition(.failure(error))
+                completion(.failure(error))
             }
         }
         

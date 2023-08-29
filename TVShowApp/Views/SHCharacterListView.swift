@@ -28,7 +28,7 @@ final class SHCharacterListView: UIView {
         view.isHidden = true
         view.alpha = 0
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        view.register(SHCharacterCollectionViewCell.self, forCellWithReuseIdentifier: SHCharacterCollectionViewCell.identifier)
         
         return view
     }()
