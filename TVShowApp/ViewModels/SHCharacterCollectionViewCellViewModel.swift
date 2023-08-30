@@ -23,7 +23,7 @@ final class SHCharacterCollectionViewCellViewModel {
     }
     
     public var statusText: String {
-        return status.rawValue
+        return "Status: \(status.text)"
     }
     
     public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) {

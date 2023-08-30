@@ -7,14 +7,40 @@
 
 import UIKit
 
+protocol SHCharacterListViewViewModelDelegate: AnyObject {
+    func didLoadInitialCharacters()
+}
 
 final class SHCharacterListViewViewModel: NSObject {
+    weak var delegate: SHCharacterListViewViewModelDelegate?
+    
+    private var characters: [SHCharacter] = [] {
+        didSet {
+            for character in characters {
+                let viewModel = SHCharacterCollectionViewCellViewModel(
+                    name: character.name,
+                    status: character.status,
+                    imageUrl: URL(string: character.image)
+                )
+                cellViewModels.append(viewModel)
+            }
+        }
+    }
+    
+    private var cellViewModels: [SHCharacterCollectionViewCellViewModel] = []
     
     func fetchCharacters() {
-        SHService.shared.execute(.listCharacterRequests, expecting: SHGetCharactersResponse.self) { result in
+        SHService.shared.execute(
+            .listCharacterRequests,
+            expecting: SHGetCharactersResponse.self
+        ) { [weak self] result in
             switch result {
-                case .success(let model):
-                    print("Example image url" + String(model.results.first?.image ?? "No image"))
+                case .success(let responseModel):
+                    let results = responseModel.results
+                    self?.characters = results
+                    DispatchQueue.main.async {
+                        self?.delegate?.didLoadInitialCharacters()
+                    }
                 case .failure(let error):
                     print(String(describing: error))
             }
@@ -25,7 +51,7 @@ final class SHCharacterListViewViewModel: NSObject {
 
 extension SHCharacterListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return cellViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -35,7 +61,7 @@ extension SHCharacterListViewViewModel: UICollectionViewDataSource, UICollection
             fatalError("Unsupported cell")
         }
         
-        let viewModel = SHCharacterCollectionViewCellViewModel(name: "Morty", status: .alive, imageUrl: URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"))
+        let viewModel = cellViewModels[indexPath.row]
         cell.configure(with: viewModel)
         
         return cell

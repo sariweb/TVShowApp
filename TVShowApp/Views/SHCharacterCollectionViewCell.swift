@@ -13,7 +13,8 @@ final class SHCharacterCollectionViewCell: UICollectionViewCell {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -45,24 +46,33 @@ final class SHCharacterCollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = .secondarySystemBackground
         contentView.addSubviews(imageView, nameLabel, statusLabel)
         addConstraints()
+        setupLayer()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupLayer() {
+        contentView.layer.cornerRadius = 8
+        contentView.layer.shadowRadius = 4
+        contentView.layer.shadowOpacity = 0.3
+        contentView.layer.shadowOffset = CGSize(width: -4, height: 4)
+        contentView.layer.shadowColor = UIColor.label.cgColor
+    }
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
-        statusLabel.heightAnchor.constraint(equalToConstant: 40),
-        nameLabel.heightAnchor.constraint(equalToConstant: 40),
+        statusLabel.heightAnchor.constraint(equalToConstant: 30),
+        nameLabel.heightAnchor.constraint(equalToConstant: 30),
         
-        statusLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-        statusLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-        statusLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -3),
+        statusLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 7),
+        statusLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -7),
+        statusLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+        
         nameLabel.bottomAnchor.constraint(equalTo: statusLabel.topAnchor, constant: -3),
-        
-        nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-        nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+        nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 7),
+        nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -7),
         
         imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
         imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -71,6 +81,11 @@ final class SHCharacterCollectionViewCell: UICollectionViewCell {
 
         ])
         
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        setupLayer()
     }
     
     override func prepareForReuse() {
