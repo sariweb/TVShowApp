@@ -7,10 +7,19 @@
 
 import UIKit
 
+protocol SHCharacterListViewDelegate: AnyObject {
+    func shCharacterListView(
+        _ characterListView: SHCharacterListView,
+        didSelectCharacter character: SHCharacter
+    )
+}
+
 /// View that handles showing list of characters, loader, etc.
 final class SHCharacterListView: UIView {
     
     private let viewModel = SHCharacterListViewViewModel()
+    
+    public weak var delegate: SHCharacterListViewDelegate?
     
     private let spinner: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .large)
@@ -23,7 +32,7 @@ final class SHCharacterListView: UIView {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.isHidden = true
         view.alpha = 0
@@ -70,6 +79,10 @@ final class SHCharacterListView: UIView {
 }
 
 extension SHCharacterListView: SHCharacterListViewViewModelDelegate {
+    func didSelectCharacter(_ character: SHCharacter) {
+        delegate?.shCharacterListView(self, didSelectCharacter: character)
+    }
+    
     func didLoadInitialCharacters() {
         collectionView.reloadData()
         spinner.stopAnimating()

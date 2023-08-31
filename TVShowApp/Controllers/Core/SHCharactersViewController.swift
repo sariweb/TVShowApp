@@ -21,6 +21,7 @@ final class SHCharactersViewController: UIViewController {
     }
     
     private func setupView() {
+        characterListView.delegate = self
         view.addSubview(characterListView)
         
         NSLayoutConstraint.activate([
@@ -31,4 +32,15 @@ final class SHCharactersViewController: UIViewController {
         ])
     }
 
+}
+
+extension SHCharactersViewController: SHCharacterListViewDelegate {
+    func shCharacterListView(_ characterListView: SHCharacterListView, didSelectCharacter character: SHCharacter) {
+        let viewModel = SHCharacterDetailViewViewModel(character: character)
+        let detailVC = SHCharacterDetailViewController(viewModel: viewModel)
+        detailVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    
 }

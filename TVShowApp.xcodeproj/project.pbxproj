@@ -31,6 +31,9 @@
 		85EC40B02A9C4F2800BD6C59 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40AF2A9C4F2800BD6C59 /* Extensions.swift */; };
 		85EC40B22A9D9A2400BD6C59 /* SHCharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40B12A9D9A2400BD6C59 /* SHCharacterCollectionViewCell.swift */; };
 		85EC40B42A9D9BD900BD6C59 /* SHCharacterCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40B32A9D9BD900BD6C59 /* SHCharacterCollectionViewCellViewModel.swift */; };
+		85EC40B72AA03E4A00BD6C59 /* SHCharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40B62AA03E4A00BD6C59 /* SHCharacterDetailViewController.swift */; };
+		85EC40B92AA03F5E00BD6C59 /* SHCharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40B82AA03F5E00BD6C59 /* SHCharacterDetailView.swift */; };
+		85EC40BB2AA03F9000BD6C59 /* SHCharacterDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40BA2AA03F9000BD6C59 /* SHCharacterDetailViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		85EC40AF2A9C4F2800BD6C59 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		85EC40B12A9D9A2400BD6C59 /* SHCharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		85EC40B32A9D9BD900BD6C59 /* SHCharacterCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		85EC40B62AA03E4A00BD6C59 /* SHCharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterDetailViewController.swift; sourceTree = "<group>"; };
+		85EC40B82AA03F5E00BD6C59 /* SHCharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterDetailView.swift; sourceTree = "<group>"; };
+		85EC40BA2AA03F9000BD6C59 /* SHCharacterDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterDetailViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 		85EC40852A9A1D5B00BD6C59 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				85EC40B52AA03E2600BD6C59 /* Other */,
 				85EC40922A9A1F8400BD6C59 /* Core */,
 			);
 			path = Controllers;
@@ -126,6 +133,7 @@
 			children = (
 				85EC40AD2A9B3C3700BD6C59 /* SHCharacterListView.swift */,
 				85EC40B12A9D9A2400BD6C59 /* SHCharacterCollectionViewCell.swift */,
+				85EC40B82AA03F5E00BD6C59 /* SHCharacterDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +143,7 @@
 			children = (
 				85EC40AB2A9B3BA000BD6C59 /* SHCharacterListViewViewModel.swift */,
 				85EC40B32A9D9BD900BD6C59 /* SHCharacterCollectionViewCellViewModel.swift */,
+				85EC40BA2AA03F9000BD6C59 /* SHCharacterDetailViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -199,6 +208,14 @@
 				85EC40A92A9B30F300BD6C59 /* SHGetAllCharactersResponse.swift */,
 			);
 			path = APIResponseTypes;
+			sourceTree = "<group>";
+		};
+		85EC40B52AA03E2600BD6C59 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				85EC40B62AA03E4A00BD6C59 /* SHCharacterDetailViewController.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,8 +289,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				85EC40762A9A1C7A00BD6C59 /* SHTabBarViewController.swift in Sources */,
+				85EC40B72AA03E4A00BD6C59 /* SHCharacterDetailViewController.swift in Sources */,
 				85EC40962A9A1FB000BD6C59 /* SHCharactersViewController.swift in Sources */,
+				85EC40BB2AA03F9000BD6C59 /* SHCharacterDetailViewViewModel.swift in Sources */,
 				85EC40A42A9B15EF00BD6C59 /* SHCharacterStatus.swift in Sources */,
+				85EC40B92AA03F5E00BD6C59 /* SHCharacterDetailView.swift in Sources */,
 				85EC409E2A9B089100BD6C59 /* SHRequest.swift in Sources */,
 				85EC40AC2A9B3BA000BD6C59 /* SHCharacterListViewViewModel.swift in Sources */,
 				85EC40722A9A1C7A00BD6C59 /* AppDelegate.swift in Sources */,
