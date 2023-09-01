@@ -34,6 +34,7 @@
 		85EC40B72AA03E4A00BD6C59 /* SHCharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40B62AA03E4A00BD6C59 /* SHCharacterDetailViewController.swift */; };
 		85EC40B92AA03F5E00BD6C59 /* SHCharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40B82AA03F5E00BD6C59 /* SHCharacterDetailView.swift */; };
 		85EC40BB2AA03F9000BD6C59 /* SHCharacterDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40BA2AA03F9000BD6C59 /* SHCharacterDetailViewViewModel.swift */; };
+		85EC40BD2AA18E5D00BD6C59 /* SHFooterLoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40BC2AA18E5D00BD6C59 /* SHFooterLoadingCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		85EC40B62AA03E4A00BD6C59 /* SHCharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterDetailViewController.swift; sourceTree = "<group>"; };
 		85EC40B82AA03F5E00BD6C59 /* SHCharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterDetailView.swift; sourceTree = "<group>"; };
 		85EC40BA2AA03F9000BD6C59 /* SHCharacterDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterDetailViewViewModel.swift; sourceTree = "<group>"; };
+		85EC40BC2AA18E5D00BD6C59 /* SHFooterLoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHFooterLoadingCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				85EC40AD2A9B3C3700BD6C59 /* SHCharacterListView.swift */,
 				85EC40B12A9D9A2400BD6C59 /* SHCharacterCollectionViewCell.swift */,
 				85EC40B82AA03F5E00BD6C59 /* SHCharacterDetailView.swift */,
+				85EC40BC2AA18E5D00BD6C59 /* SHFooterLoadingCollectionReusableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				85EC408F2A9A1EBD00BD6C59 /* SHCharacter.swift in Sources */,
 				85EC409A2A9A1FC900BD6C59 /* SHSettingsViewController.swift in Sources */,
 				85EC40A22A9B10F500BD6C59 /* SHOrigin.swift in Sources */,
+				85EC40BD2AA18E5D00BD6C59 /* SHFooterLoadingCollectionReusableView.swift in Sources */,
 				85EC40912A9A1ECB00BD6C59 /* SHEpisode.swift in Sources */,
 				85EC409C2A9B086D00BD6C59 /* SHService.swift in Sources */,
 				85EC40B02A9C4F2800BD6C59 /* Extensions.swift in Sources */,

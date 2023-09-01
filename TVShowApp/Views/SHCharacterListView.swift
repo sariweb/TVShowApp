@@ -37,7 +37,13 @@ final class SHCharacterListView: UIView {
         view.isHidden = true
         view.alpha = 0
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.register(SHCharacterCollectionViewCell.self, forCellWithReuseIdentifier: SHCharacterCollectionViewCell.identifier)
+        view.register(
+            SHCharacterCollectionViewCell.self,
+            forCellWithReuseIdentifier: SHCharacterCollectionViewCell.identifier)
+        view.register(
+            SHFooterLoadingCollectionReusableView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+            withReuseIdentifier: SHFooterLoadingCollectionReusableView.identifier)
         
         return view
     }()
