@@ -45,3 +45,16 @@ final class SHCharacterCollectionViewCellViewModel {
     }
 }
 
+// MARK: - Hashable & Equatable
+
+extension SHCharacterCollectionViewCellViewModel: Hashable, Equatable {
+    static func == (lhs: SHCharacterCollectionViewCellViewModel, rhs: SHCharacterCollectionViewCellViewModel) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(statusText)
+        hasher.combine(imageUrl)
+    }
+}

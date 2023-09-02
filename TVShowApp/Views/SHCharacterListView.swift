@@ -85,6 +85,12 @@ final class SHCharacterListView: UIView {
 }
 
 extension SHCharacterListView: SHCharacterListViewViewModelDelegate {
+    func didLoadMoreCharacters(with newIndexPaths: [IndexPath]) {
+        collectionView.performBatchUpdates {
+            self.collectionView.insertItems(at: newIndexPaths)
+        }
+    }
+    
     func didSelectCharacter(_ character: SHCharacter) {
         delegate?.shCharacterListView(self, didSelectCharacter: character)
     }
