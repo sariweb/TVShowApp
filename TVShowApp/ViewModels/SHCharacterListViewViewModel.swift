@@ -164,7 +164,7 @@ extension SHCharacterListViewViewModel: UIScrollViewDelegate {
               let url = URL(string: nextUrlString)
         else { return }
 
-        Timer.scheduledTimer(withTimeInterval: 0.2,
+        Timer.scheduledTimer(withTimeInterval: 0.0,
                              repeats: false) { [weak self] t in
             
             let offset = scrollView.contentOffset.y
