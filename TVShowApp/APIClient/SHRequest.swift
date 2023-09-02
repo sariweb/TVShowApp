@@ -69,6 +69,8 @@ final class SHRequest {
         self.queryParameters = queryParameters
     }
     
+    /// Attempt tocreate request
+    /// - Parameter url: URL to parse
     convenience init?(url: URL) {
         let string = url.absoluteString
         if !string.contains(Constants.baseUrl) {
@@ -121,5 +123,5 @@ final class SHRequest {
 }
 
 extension SHRequest {
-    static let listCharacterRequests = SHRequest(endpoint: .character)
+    static let listCharacterRequest = SHRequest(endpoint: .character)
 }

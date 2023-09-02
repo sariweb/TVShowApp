@@ -35,11 +35,6 @@ final class SHFooterLoadingCollectionReusableView: UICollectionReusableView {
             spinner.heightAnchor.constraint(equalToConstant: 100),
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
             spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
-//
-//            collectionView.topAnchor.constraint(equalTo: topAnchor),
-//            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
     

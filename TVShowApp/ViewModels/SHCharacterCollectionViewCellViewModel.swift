@@ -27,7 +27,6 @@ final class SHCharacterCollectionViewCellViewModel {
     }
     
     public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) {
-        // TODO: Abstract to image manager
         guard let url = imageUrl else {
             completion(.failure(URLError(.badURL)))
             return
