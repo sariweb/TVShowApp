@@ -12,7 +12,7 @@ final class SHCharacterEpisodeCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        backgroundColor = .tertiarySystemBackground
         addConstraints()
     }
     

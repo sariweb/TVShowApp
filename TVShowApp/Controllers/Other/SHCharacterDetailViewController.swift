@@ -87,7 +87,6 @@ extension SHCharacterDetailViewController: UICollectionViewDataSource, UICollect
                     
                 }
                 cell.configure(with: viewModel)
-                cell.backgroundColor = .systemPink
                 return cell
             case .infornation(viewModels: let viewModels):
                 guard let cell = collectionView.dequeueReusableCell(
@@ -97,7 +96,6 @@ extension SHCharacterDetailViewController: UICollectionViewDataSource, UICollect
                     
                 }
                 cell.configure(with: viewModels[indexPath.row])
-                cell.backgroundColor = .systemBlue
                 return cell
             case .episodes(viewModels: let viewModels):
                 guard let cell = collectionView.dequeueReusableCell(
@@ -107,7 +105,6 @@ extension SHCharacterDetailViewController: UICollectionViewDataSource, UICollect
                     
                 }
                 cell.configure(with: viewModels[indexPath.row])
-                cell.backgroundColor = .systemYellow
                 return cell
         }
     }

@@ -8,7 +8,9 @@
 import UIKit
 
 final class SHCharacterEpisodeCollectionViewCellViewModel {
-    init() {
-        
+    private let episodeDataUrl: URL?
+    
+    init(episodeDataUrl: URL?) {
+        self.episodeDataUrl = episodeDataUrl
     }
 }

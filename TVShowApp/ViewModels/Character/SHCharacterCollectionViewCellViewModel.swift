@@ -27,12 +27,12 @@ final class SHCharacterCollectionViewCellViewModel {
     }
     
     public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) {
-        guard let url = imageUrl else {
+        guard let imageUrl else {
             completion(.failure(URLError(.badURL)))
             return
         }
         
-        SHImageLoader.shared.downloadImage(url, completion: completion)
+        SHImageLoader.shared.downloadImage(imageUrl, completion: completion)
     }
 }
 
