@@ -10,18 +10,19 @@ import UIKit
 final class SHCharacterDetailViewViewModel {
     private let character: SHCharacter
     
-    enum SectionType: CaseIterable {
-        case image
-        case infornation
-        case episodes
+    enum SectionType {
+        case photo(viewModel: SHCharacterPhotoCollectionViewCellViewModel)
+        case infornation(viewModels: [SHCharacterInfoCollectionViewCellViewModel])
+        case episodes(viewModels: [SHCharacterEpisodeCollectionViewCellViewModel])
     }
     
-    public let sections = SectionType.allCases
+    public var sections: [SectionType] = []
     
     // MARK: - Init
     
     init(character: SHCharacter) {
         self.character = character
+        setupSections()
     }
     
     public var title: String {
@@ -30,6 +31,25 @@ final class SHCharacterDetailViewViewModel {
     
     private var requestUrl: URL? {
         return URL(string: character.url)
+    }
+    
+    private func setupSections() {
+        sections = [
+            .photo(viewModel: .init()),
+            .infornation(viewModels: [
+                .init(),
+                .init(),
+                .init(),
+                .init(),
+            ]),
+            .episodes(viewModels: [
+                .init(),
+                .init(),
+                .init(),
+                .init(),
+            ]),
+            
+        ]
     }
     
     // MARK: - Layouts

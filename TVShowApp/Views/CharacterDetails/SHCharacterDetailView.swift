@@ -60,8 +60,14 @@ final class SHCharacterDetailView: UIView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.register(
-            UICollectionViewCell.self,
-            forCellWithReuseIdentifier: "cell")
+            SHCharacterPhotoCollectionViewCell.self,
+            forCellWithReuseIdentifier: SHCharacterPhotoCollectionViewCell.identifier)
+        view.register(
+            SHCharacterInfoCollectionViewCell.self,
+            forCellWithReuseIdentifier: SHCharacterInfoCollectionViewCell.identifier)
+        view.register(
+            SHCharacterEpisodeCollectionViewCell.self,
+            forCellWithReuseIdentifier: SHCharacterEpisodeCollectionViewCell.identifier)
         
         
         return view
@@ -71,7 +77,7 @@ final class SHCharacterDetailView: UIView {
         let sectionTypes = viewModel.sections
         
         switch sectionTypes[index] {
-            case .image:
+            case .photo:
                 return viewModel.createPhotoSectionLayout()
             case .infornation:
                 return viewModel.createInfoSectionLayout()

@@ -62,31 +62,54 @@ extension SHCharacterDetailViewController: UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-            case 0:
+        let sectionType = viewModel.sections[section]
+        
+        switch sectionType {
+            case .photo:
                 return 1
-            case 1:
-                return 8
-            case 2:
-                return 20
-            default:
-                return 1
+            case .infornation(viewModels: let viewModels):
+                return viewModels.count
+            case .episodes(viewModels: let viewModels):
+                return viewModels.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "cell",
-            for: indexPath)
-        if indexPath.section == 0 {
-            cell.backgroundColor = .systemPink
-        } else if indexPath.section == 1 {
-            cell.backgroundColor = .systemBlue
-        } else {
-            cell.backgroundColor = .systemYellow
-        }
         
-        return cell
+        let sectionType = viewModel.sections[indexPath.section]
+        
+        switch sectionType {
+            case .photo(viewModel: let viewModel):
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: SHCharacterPhotoCollectionViewCell.identifier,
+                    for: indexPath) as? SHCharacterPhotoCollectionViewCell else {
+                    fatalError("Unsupported")
+                    
+                }
+                cell.configure(with: viewModel)
+                cell.backgroundColor = .systemPink
+                return cell
+            case .infornation(viewModels: let viewModels):
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: SHCharacterInfoCollectionViewCell.identifier,
+                    for: indexPath) as? SHCharacterInfoCollectionViewCell else {
+                    fatalError("Unsupported")
+                    
+                }
+                cell.configure(with: viewModels[indexPath.row])
+                cell.backgroundColor = .systemBlue
+                return cell
+            case .episodes(viewModels: let viewModels):
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: SHCharacterEpisodeCollectionViewCell.identifier,
+                    for: indexPath) as? SHCharacterEpisodeCollectionViewCell else {
+                    fatalError("Unsupported")
+                    
+                }
+                cell.configure(with: viewModels[indexPath.row])
+                cell.backgroundColor = .systemYellow
+                return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
