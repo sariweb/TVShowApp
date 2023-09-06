@@ -12,7 +12,9 @@ final class SHCharacterEpisodeCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .tertiarySystemBackground
+        contentView.backgroundColor = .blue
+        contentView.layer.cornerRadius = 8
+        contentView.layer.masksToBounds = true
         addConstraints()
     }
     
@@ -31,6 +33,11 @@ final class SHCharacterEpisodeCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with viewModel: SHCharacterEpisodeCollectionViewCellViewModel) {
-        
+        viewModel.registerForData { data in
+            print(data.name)
+            print(data.airDate)
+            print(data.episode)
+        }
+        viewModel.fetchEpisode()
     }
 }

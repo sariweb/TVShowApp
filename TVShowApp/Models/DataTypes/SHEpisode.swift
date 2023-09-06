@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - SHEpisode
-struct SHEpisode: Codable {
+struct SHEpisode: Codable, SHEpisodeDataRender {
     let id: Int
     let name, airDate, episode: String
     let characters: [String]
