@@ -14,7 +14,6 @@ final class SHCharacterInfoCollectionViewCell: UICollectionViewCell {
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "globe.americas")
         imageView.contentMode = .scaleAspectFit
         
         return imageView
@@ -23,8 +22,8 @@ final class SHCharacterInfoCollectionViewCell: UICollectionViewCell {
     private let valueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Earth"
         label.font = .systemFont(ofSize: 22, weight: .light)
+        label.numberOfLines = 0
         
         return label
     }()
@@ -32,7 +31,6 @@ final class SHCharacterInfoCollectionViewCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Location"
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 20, weight: .medium)
         
@@ -79,22 +77,28 @@ final class SHCharacterInfoCollectionViewCell: UICollectionViewCell {
             iconImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 35),
             iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             
-            valueLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 35),
+            valueLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             valueLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 10),
             valueLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            valueLabel.heightAnchor.constraint(equalToConstant: 30),
+            valueLabel.bottomAnchor.constraint(equalTo: titleContainerView.topAnchor),
             
         ])
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-//        titleLabel.text = nil
-//        valueLabel.text = nil
-//        iconImageView.image = nil
+        titleLabel.text = nil
+        valueLabel.text = nil
+        iconImageView.image = nil
+        iconImageView.tintColor = .label
+        titleLabel.tintColor = .label
     }
     
     public func configure(with viewModel: SHCharacterInfoCollectionViewCellViewModel) {
-        
+        titleLabel.text = viewModel.title
+        valueLabel.text = viewModel.displayValue
+        iconImageView.image = viewModel.iconImage
+        iconImageView.tintColor = viewModel.tintColor
+        titleLabel.tintColor = viewModel.tintColor
     }
 }
