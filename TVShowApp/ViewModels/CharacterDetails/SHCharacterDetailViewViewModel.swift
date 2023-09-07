@@ -10,6 +10,10 @@ import UIKit
 final class SHCharacterDetailViewViewModel {
     private let character: SHCharacter
     
+    public var episodes: [String] {
+        character.episode
+    }
+    
     enum SectionType {
         case photo(viewModel: SHCharacterPhotoCollectionViewCellViewModel)
         case infornation(viewModels: [SHCharacterInfoCollectionViewCellViewModel])

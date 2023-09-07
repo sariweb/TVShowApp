@@ -12,6 +12,8 @@ final class SHCharacterDetailViewController: UIViewController {
     private let viewModel: SHCharacterDetailViewViewModel
     private let detailView: SHCharacterDetailView
     
+    // MARK: - Init
+    
     init(viewModel: SHCharacterDetailViewViewModel) {
         self.viewModel = viewModel
         self.detailView = SHCharacterDetailView(frame: .zero, viewModel: viewModel)
@@ -21,6 +23,8 @@ final class SHCharacterDetailViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,5 +117,20 @@ extension SHCharacterDetailViewController: UICollectionViewDataSource, UICollect
         let bounds = UIScreen.main.bounds
         let width = (bounds.width - 30) / 2
         return CGSize(width: width, height: width * 1.5)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sectionType = viewModel.sections[indexPath.section]
+        
+        switch sectionType {
+            case .photo,
+                .infornation:
+                break
+            case .episodes:
+                let episodes = self.viewModel.episodes
+                let selection = episodes[indexPath.row]
+                let vc = SHEpisodeDetailViewController(url: URL(string: selection))
+                navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
