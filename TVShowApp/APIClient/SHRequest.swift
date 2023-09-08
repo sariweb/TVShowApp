@@ -15,9 +15,6 @@ final class SHRequest {
         static let baseUrl = "https://rickandmortyapi.com/api"
     }
     
-    /// Desired endpoint
-    private let endpoint: SHEndpoint
-    
     /// Path components for API if any
     private let pathComponents: [String]
     
@@ -46,7 +43,11 @@ final class SHRequest {
         }
         return string
     }
+    
     // MARK: - Public
+    
+    /// Desired endpoint
+    public let endpoint: SHEndpoint
     
     /// Computed and constracted API url
     public var url: URL? {

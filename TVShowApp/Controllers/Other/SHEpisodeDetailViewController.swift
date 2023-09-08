@@ -9,12 +9,12 @@ import UIKit
 
 /// Controller to show info about a single episode
 final class SHEpisodeDetailViewController: UIViewController {
-    let url: URL?
+    private let viewModel: SHEpisodeDetailViewViewModel
     
     // MARK: - Init
     
     init(url: URL?) {
-        self.url = url
+        self.viewModel = .init(endpointUrl: url)
         
         super.init(nibName: nil, bundle: nil)
     }

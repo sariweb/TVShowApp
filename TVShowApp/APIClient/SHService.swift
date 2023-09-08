@@ -12,6 +12,8 @@ final class SHService {
     /// Shared siglton instace
     static let shared = SHService()
     
+    private let cacheManager = SHAPICacheManager()
+    
     /// Privatized constractor
     private init() {}
     
@@ -30,12 +32,27 @@ final class SHService {
         expecting type: T.Type,
         completion: @escaping (Result<T, Error>) -> Void
     ) {
+        if let data = cacheManager.cachedResponse(
+            for: request.endpoint,
+            url: request.url
+        ) {
+            do {
+                let result = try JSONDecoder().decode(type.self, from: data)
+                completion(.success(result))
+            }
+            catch {
+                completion(.failure(error))
+            }
+            
+            return
+        }
+        
         guard let urlRequest = self.request(from: request) else {
             completion(.failure(SHServiceError.failedToCreateRequest))
             return
         }
         
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, _, error in
             guard let data = data, error == nil else {
                 completion(.failure(error ?? SHServiceError.failedToGetData))
                 return
@@ -43,6 +60,11 @@ final class SHService {
             
             do {
                 let result = try JSONDecoder().decode(type.self, from: data)
+                self?.cacheManager.setCache(
+                    for: request.endpoint,
+                    url: request.url,
+                    data: data
+                )
                 completion(.success(result))
             }
             catch {
