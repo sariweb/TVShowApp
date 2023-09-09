@@ -18,6 +18,10 @@
 		853EFAB32AA980E900F5DF86 /* SHAPICacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAB22AA980E900F5DF86 /* SHAPICacheManager.swift */; };
 		853EFAB52AAAC70F00F5DF86 /* SHEpisodeDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAB42AAAC70F00F5DF86 /* SHEpisodeDetailViewViewModel.swift */; };
 		853EFAB92AAAC7C700F5DF86 /* SHEpisodeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAB82AAAC7C700F5DF86 /* SHEpisodeDetailView.swift */; };
+		853EFABC2AAC187700F5DF86 /* SHEpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFABB2AAC187700F5DF86 /* SHEpisodeListView.swift */; };
+		853EFABE2AAC190100F5DF86 /* SHEpisodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFABD2AAC190100F5DF86 /* SHEpisodeCollectionViewCell.swift */; };
+		853EFAC12AAC19AC00F5DF86 /* SHEpisodeListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAC02AAC19AC00F5DF86 /* SHEpisodeListViewViewModel.swift */; };
+		853EFAC52AAC20FD00F5DF86 /* SHGetEpisodesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAC42AAC20FD00F5DF86 /* SHGetEpisodesResponse.swift */; };
 		85EC40722A9A1C7A00BD6C59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40712A9A1C7A00BD6C59 /* AppDelegate.swift */; };
 		85EC40742A9A1C7A00BD6C59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40732A9A1C7A00BD6C59 /* SceneDelegate.swift */; };
 		85EC40762A9A1C7A00BD6C59 /* SHTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40752A9A1C7A00BD6C59 /* SHTabBarViewController.swift */; };
@@ -60,6 +64,10 @@
 		853EFAB22AA980E900F5DF86 /* SHAPICacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHAPICacheManager.swift; sourceTree = "<group>"; };
 		853EFAB42AAAC70F00F5DF86 /* SHEpisodeDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHEpisodeDetailViewViewModel.swift; sourceTree = "<group>"; };
 		853EFAB82AAAC7C700F5DF86 /* SHEpisodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHEpisodeDetailView.swift; sourceTree = "<group>"; };
+		853EFABB2AAC187700F5DF86 /* SHEpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHEpisodeListView.swift; sourceTree = "<group>"; };
+		853EFABD2AAC190100F5DF86 /* SHEpisodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHEpisodeCollectionViewCell.swift; sourceTree = "<group>"; };
+		853EFAC02AAC19AC00F5DF86 /* SHEpisodeListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHEpisodeListViewViewModel.swift; sourceTree = "<group>"; };
+		853EFAC42AAC20FD00F5DF86 /* SHGetEpisodesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHGetEpisodesResponse.swift; sourceTree = "<group>"; };
 		85EC406E2A9A1C7A00BD6C59 /* TVShowApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShowApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EC40712A9A1C7A00BD6C59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85EC40732A9A1C7A00BD6C59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +167,23 @@
 			path = EpisodeDetails;
 			sourceTree = "<group>";
 		};
+		853EFABA2AAC184F00F5DF86 /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				853EFABB2AAC187700F5DF86 /* SHEpisodeListView.swift */,
+				853EFABD2AAC190100F5DF86 /* SHEpisodeCollectionViewCell.swift */,
+			);
+			path = Episode;
+			sourceTree = "<group>";
+		};
+		853EFABF2AAC197F00F5DF86 /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				853EFAC02AAC19AC00F5DF86 /* SHEpisodeListViewViewModel.swift */,
+			);
+			path = Episode;
+			sourceTree = "<group>";
+		};
 		85EC40652A9A1C7A00BD6C59 = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +236,7 @@
 		85EC40872A9A1D7400BD6C59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				853EFABA2AAC184F00F5DF86 /* Episode */,
 				853EFAB72AAAC7A400F5DF86 /* EpisodeDetails */,
 				853EFAA12AA57FB000F5DF86 /* Character */,
 				853EFAA02AA57F6F00F5DF86 /* CharacterDetails */,
@@ -222,6 +248,7 @@
 		85EC40882A9A1D7D00BD6C59 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				853EFABF2AAC197F00F5DF86 /* Episode */,
 				853EFAB62AAAC71700F5DF86 /* EpisodeDetails */,
 				853EFAA92AA5806D00F5DF86 /* Character */,
 				853EFAA82AA5805C00F5DF86 /* CharacterDetails */,
@@ -289,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				85EC40A92A9B30F300BD6C59 /* SHGetAllCharactersResponse.swift */,
+				853EFAC42AAC20FD00F5DF86 /* SHGetEpisodesResponse.swift */,
 			);
 			path = APIResponseTypes;
 			sourceTree = "<group>";
@@ -387,16 +415,20 @@
 				85EC40AA2A9B30F300BD6C59 /* SHGetAllCharactersResponse.swift in Sources */,
 				853EFAA32AA57FF000F5DF86 /* SHCharacterPhotoCollectionViewCell.swift in Sources */,
 				85EC40742A9A1C7A00BD6C59 /* SceneDelegate.swift in Sources */,
+				853EFABE2AAC190100F5DF86 /* SHEpisodeCollectionViewCell.swift in Sources */,
 				85EC40AE2A9B3C3700BD6C59 /* SHCharacterListView.swift in Sources */,
 				853EFAB32AA980E900F5DF86 /* SHAPICacheManager.swift in Sources */,
 				853EFAA72AA5803500F5DF86 /* SHCharacterEpisodeCollectionViewCell.swift in Sources */,
 				85EC408F2A9A1EBD00BD6C59 /* SHCharacter.swift in Sources */,
+				853EFAC12AAC19AC00F5DF86 /* SHEpisodeListViewViewModel.swift in Sources */,
 				85EC409A2A9A1FC900BD6C59 /* SHSettingsViewController.swift in Sources */,
 				853EFAB52AAAC70F00F5DF86 /* SHEpisodeDetailViewViewModel.swift in Sources */,
 				853EFAAD2AA580D900F5DF86 /* SHCharacterInfoCollectionViewCellViewModel.swift in Sources */,
+				853EFAC52AAC20FD00F5DF86 /* SHGetEpisodesResponse.swift in Sources */,
 				85EC40A22A9B10F500BD6C59 /* SHOrigin.swift in Sources */,
 				85EC40BD2AA18E5D00BD6C59 /* SHFooterLoadingCollectionReusableView.swift in Sources */,
 				853EFAAB2AA580C900F5DF86 /* SHCharacterPhotoCollectionViewCellViewModel.swift in Sources */,
+				853EFABC2AAC187700F5DF86 /* SHEpisodeListView.swift in Sources */,
 				85EC40912A9A1ECB00BD6C59 /* SHEpisode.swift in Sources */,
 				85EC409C2A9B086D00BD6C59 /* SHService.swift in Sources */,
 				85EC40B02A9C4F2800BD6C59 /* Extensions.swift in Sources */,

@@ -1,29 +1,27 @@
 //
-//  SHCharacterListViewViewModel.swift
+//  SHEpisodeListViewViewModel.swift
 //  TVShowApp
 //
-//  Created by Sergei on 27.08.2023.
+//  Created by Sergei on 09.09.2023.
 //
 
 import UIKit
 
-protocol SHCharacterListViewViewModelDelegate: AnyObject {
-    func didLoadInitialCharacters()
-    func didLoadMoreCharacters(with newIndexPaths: [IndexPath])
-    func didSelectCharacter(_ character: SHCharacter)
+protocol SHEpisodeListViewViewModelDelegate: AnyObject {
+    func didLoadInitialEpisodes()
+    func didLoadMoreEpisodes(with newIndexPaths: [IndexPath])
+    func didSelectEpisode(_ episode: SHEpisode)
 }
 
-/// ViewModel to handle character list view logic
-final class SHCharacterListViewViewModel: NSObject {
-    weak var delegate: SHCharacterListViewViewModelDelegate?
+/// ViewModel to handle episode list view logic
+final class SHEpisodeListViewViewModel: NSObject {
+    weak var delegate: SHEpisodeListViewViewModelDelegate?
     
-    private var characters: [SHCharacter] = [] {
+    private var episodes: [SHEpisode] = [] {
         didSet {
-            for character in characters {
-                let viewModel = SHCharacterCollectionViewCellViewModel(
-                    name: character.name,
-                    status: character.status,
-                    imageUrl: URL(string: character.image)
+            for episode in episodes {
+                let viewModel = SHCharacterEpisodeCollectionViewCellViewModel(
+                    episodeDataUrl: URL(string: episode.url)
                 )
                 
                 if !cellViewModels.contains(viewModel) { cellViewModels.append(viewModel) }
@@ -31,25 +29,25 @@ final class SHCharacterListViewViewModel: NSObject {
         }
     }
     
-    private var cellViewModels: [SHCharacterCollectionViewCellViewModel] = []
-    private var apiInfo: SHGetAllCharactersResponse.Info? = nil
-    private var isLoadingMoreCharacters = false
+    private var cellViewModels: [SHCharacterEpisodeCollectionViewCellViewModel] = []
+    private var apiInfo: SHGetAllEpisodesResponse.Info? = nil
+    private var isLoadingMoreEpisodes = false
     
-    /// Fetch initial set of characters (20)
-    func fetchCharacters() {
+    /// Fetch initial set of episodes (20)
+    func fetchEpisodes() {
         SHService.shared.execute(
-            .listCharacterRequest,
-            expecting: SHGetAllCharactersResponse.self
+            .listEpisodeRequest,
+            expecting: SHGetAllEpisodesResponse.self
         ) { [weak self] result in
             switch result {
                 case .success(let responseModel):
                     let results = responseModel.results
                     let info = responseModel.info
-                    self?.characters = results
+                    self?.episodes = results
                     self?.apiInfo = info
                     
                     DispatchQueue.main.async {
-                        self?.delegate?.didLoadInitialCharacters()
+                        self?.delegate?.didLoadInitialEpisodes()
                     }
                 case .failure(let error):
                     print(String(describing: error))
@@ -57,39 +55,36 @@ final class SHCharacterListViewViewModel: NSObject {
         }
     }
     
-    /// Paginate if additional characters are needed
-    public func fetchAdditionalCharacters(url: URL) {
-        guard !isLoadingMoreCharacters else {
+    /// Paginate if additional episodes are needed
+    public func fetchAdditionalEpisodes(url: URL) {
+        guard !isLoadingMoreEpisodes else {
             return
         }
-        isLoadingMoreCharacters = true
+        isLoadingMoreEpisodes = true
         
-        guard let request = SHRequest(url: url) else {
-            
-            return
-        }
+        guard let request = SHRequest(url: url) else { return }
         
         SHService.shared.execute(
             request,
-            expecting: SHGetAllCharactersResponse.self) { [weak self] result in
+            expecting: SHGetAllEpisodesResponse.self) { [weak self] result in
                 guard let self else { return }
                 switch result {
                     case .success(let responseModel):
                         let moreResults = responseModel.results
                         let info = responseModel.info
                         self.apiInfo = info
-                        let originalCount = self.characters.count
+                        let originalCount = self.episodes.count
                         let newCount = moreResults.count
                         let total = originalCount + newCount
                         let startIndex = originalCount
                         let indexPathsToAdd: [IndexPath] = Array(startIndex..<total).compactMap { IndexPath(row: $0, section: 0) }
-                        self.characters.append(contentsOf: moreResults)
+                        self.episodes.append(contentsOf: moreResults)
                         DispatchQueue.main.async {
-                            self.delegate?.didLoadMoreCharacters(with: indexPathsToAdd)
-                            self.isLoadingMoreCharacters = false
+                            self.delegate?.didLoadMoreEpisodes(with: indexPathsToAdd)
+                            self.isLoadingMoreEpisodes = false
                         }
                     case .failure(let failure):
-                        self.isLoadingMoreCharacters = false
+                        self.isLoadingMoreEpisodes = false
                         print(String(describing: failure))
                 }
             }
@@ -102,15 +97,15 @@ final class SHCharacterListViewViewModel: NSObject {
 
 // MARK: - CollectionView
 
-extension SHCharacterListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension SHEpisodeListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: SHCharacterCollectionViewCell.identifier,
-            for: indexPath) as? SHCharacterCollectionViewCell else {
+            withReuseIdentifier: SHCharacterEpisodeCollectionViewCell.identifier,
+            for: indexPath) as? SHCharacterEpisodeCollectionViewCell else {
             fatalError("Unsupported cell")
         }
         
@@ -123,13 +118,13 @@ extension SHCharacterListViewViewModel: UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let bounds = UIScreen.main.bounds
         let width = (bounds.width - 30) / 2
-        return CGSize(width: width, height: width * 1.5)
+        return CGSize(width: width, height: width * 0.8)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        let character = characters[indexPath.row]
-        delegate?.didSelectCharacter(character)
+        let episode = episodes[indexPath.row]
+        delegate?.didSelectEpisode(episode)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -155,10 +150,10 @@ extension SHCharacterListViewViewModel: UICollectionViewDataSource, UICollection
 
 // MARK: - ScrollView
 
-extension SHCharacterListViewViewModel: UIScrollViewDelegate {
+extension SHEpisodeListViewViewModel: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard shouldShowLoadMoreIndicator,
-              !isLoadingMoreCharacters,
+              !isLoadingMoreEpisodes,
               !cellViewModels.isEmpty,
               let nextUrlString = apiInfo?.next,
               let url = URL(string: nextUrlString)
@@ -173,7 +168,7 @@ extension SHCharacterListViewViewModel: UIScrollViewDelegate {
             
             if offset >= (totalContentHeight - totalScrollViewFixedHeight - 120),
                totalContentHeight > 0 {
-                self?.fetchAdditionalCharacters(url: url)
+                self?.fetchAdditionalEpisodes(url: url)
             }
             t.invalidate()
         }

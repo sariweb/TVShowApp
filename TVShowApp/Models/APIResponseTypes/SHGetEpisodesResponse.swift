@@ -1,13 +1,13 @@
 //
-//  SHGetAllCharactersResponse.swift
+//  SHGetEpisodesResponse.swift
 //  TVShowApp
 //
-//  Created by Sergei on 27.08.2023.
+//  Created by Sergei on 09.09.2023.
 //
 
 import Foundation
 
-struct SHGetAllCharactersResponse: Codable {
+struct SHGetAllEpisodesResponse: Codable {
     struct Info: Codable {
         let count: Int
         let pages: Int
@@ -16,5 +16,5 @@ struct SHGetAllCharactersResponse: Codable {
     }
     
     let info: Info
-    let results: [SHCharacter]
+    let results: [SHEpisode]
 }

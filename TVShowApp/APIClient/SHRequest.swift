@@ -125,4 +125,5 @@ final class SHRequest {
 
 extension SHRequest {
     static let listCharacterRequest = SHRequest(endpoint: .character)
+    static let listEpisodeRequest = SHRequest(endpoint: .episode)
 }
