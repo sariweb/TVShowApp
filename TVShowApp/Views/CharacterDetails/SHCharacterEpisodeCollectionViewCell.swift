@@ -40,16 +40,20 @@ final class SHCharacterEpisodeCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .tertiarySystemBackground
-        contentView.layer.cornerRadius = 8
-        contentView.layer.masksToBounds = true
-        contentView.layer.borderWidth = 2
-        contentView.layer.borderColor = UIColor.systemBlue.cgColor
+        setupLayer()
         contentView.addSubviews(episodeLabel, nameLabel, airDateLabel)
         addConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupLayer() {
+        contentView.layer.cornerRadius = 8
+        contentView.layer.masksToBounds = true
+        contentView.layer.borderWidth = 2
+        
     }
     
     private func addConstraints() {
@@ -86,5 +90,6 @@ final class SHCharacterEpisodeCollectionViewCell: UICollectionViewCell {
             self.airDateLabel.text = "Aired on " + data.airDate
         }
         viewModel.fetchEpisode()
+        contentView.layer.borderColor = viewModel.borderColor.cgColor
     }
 }

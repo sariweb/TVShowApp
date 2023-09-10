@@ -1,5 +1,5 @@
 //
-//  SHEpisodeCollectionViewCell.swift
+//  SHEpisodeInfoCollectionViewCell.swift
 //  TVShowApp
 //
 //  Created by Sergei on 09.09.2023.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class SHEpisodeCollectionViewCell: UICollectionViewCell {
-    static let identifier = "SHEpisodeCollectionViewCell"
+class SHEpisodeInfoCollectionViewCell: UICollectionViewCell {
+    static let identifier = "SHEpisodeInfoCollectionViewCell"
     
     // MARK: - Init
     
@@ -26,10 +26,9 @@ class SHEpisodeCollectionViewCell: UICollectionViewCell {
     
     private func setupLayer() {
         contentView.layer.cornerRadius = 8
-        contentView.layer.shadowRadius = 4
-        contentView.layer.shadowOpacity = 0.3
-        contentView.layer.shadowOffset = CGSize(width: -4, height: 4)
-        contentView.layer.shadowColor = UIColor.label.cgColor
+        contentView.layer.masksToBounds = true
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.secondaryLabel.cgColor
     }
     
     private func addConstraints() {
@@ -47,6 +46,10 @@ class SHEpisodeCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
+    }
+    
+    public func configure(with viewModel: SHEpisodeInfoCollectionViewCellViewModel) {
+        
     }
 
 }
