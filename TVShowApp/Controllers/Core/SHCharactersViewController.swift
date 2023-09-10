@@ -18,8 +18,23 @@ final class SHCharactersViewController: UIViewController {
         title = "Characters"
         
         setupView()
+        addSearchButton()
     }
     
+    private func addSearchButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .search,
+            target: self,
+            action: #selector(didTapSearch)
+        )
+    }
+            
+    @objc private func didTapSearch() {
+        let vc = SHSearchViewController(config: SHSearchViewController.Config(type: .character))
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+            
     private func setupView() {
         characterListView.delegate = self
         view.addSubview(characterListView)
@@ -41,6 +56,4 @@ extension SHCharactersViewController: SHCharacterListViewDelegate {
         detailVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(detailVC, animated: true)
     }
-    
-    
 }

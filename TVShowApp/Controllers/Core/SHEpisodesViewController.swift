@@ -18,6 +18,7 @@ final class SHEpisodesViewController: UIViewController {
         title = "Episodes"
         
         setupView()
+        addSearchButton()
     }
     
     private func setupView() {
@@ -31,7 +32,17 @@ final class SHEpisodesViewController: UIViewController {
             episodeListView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
         ])
     }
-    
+    private func addSearchButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .search,
+            target: self,
+            action: #selector(didTapSearch)
+        )
+    }
+            
+    @objc private func didTapSearch() {
+        
+    }
 }
 
 extension SHEpisodesViewController: SHEpisodeListViewDelegate {
