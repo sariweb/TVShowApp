@@ -7,7 +7,16 @@
 
 import UIKit
 
-class SHEpisodeDetailView: UIView {
+protocol SHEpisodeDetailViewDelegate: AnyObject {
+    func shEpisodeDetailView(
+        _ detailView: SHEpisodeDetailView,
+        didSelectCharacter character: SHCharacter
+    )
+}
+
+final class SHEpisodeDetailView: UIView {
+    public weak var delegate: SHEpisodeDetailViewDelegate?
+    
     private var viewModel: SHEpisodeDetailViewViewModel? {
         didSet {
             spinner.stopAnimating()
@@ -121,7 +130,7 @@ extension SHEpisodeDetailView {
         let group = NSCollectionLayoutGroup.vertical (
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(100)
+                heightDimension: .absolute(80)
             ),
             subitems: [item]
         )
@@ -195,6 +204,18 @@ extension SHEpisodeDetailView: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        guard let viewModel else { return }
         
+        let sections = viewModel.cellViewModels
+        
+        let sectionType = sections[indexPath.section]
+        switch sectionType {
+            case .information:
+                break
+            case .characters:
+                guard let character = viewModel.character(at: indexPath.row) else { return }
+                delegate?.shEpisodeDetailView(self, didSelectCharacter: character)
+                
+        }
     }
 }

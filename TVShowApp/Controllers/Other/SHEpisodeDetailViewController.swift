@@ -33,7 +33,7 @@ final class SHEpisodeDetailViewController: UIViewController {
         title = "Episode"
         view.backgroundColor = .systemBackground
         view.addSubview(detailView)
-        
+        detailView.delegate = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .action,
             target: self,
@@ -66,4 +66,15 @@ extension SHEpisodeDetailViewController: SHEpisodeDetailViewViewModelDelegate {
     func didFetchEpisodeDetails() {
         detailView.configure(with: viewModel)
     }
+}
+
+extension SHEpisodeDetailViewController: SHEpisodeDetailViewDelegate {
+    func shEpisodeDetailView(_ detailView: SHEpisodeDetailView, didSelectCharacter character: SHCharacter) {
+        let vc = SHCharacterDetailViewController(viewModel: .init(character: character))
+        vc.title = character.name
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
 }

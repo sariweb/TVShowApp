@@ -29,6 +29,11 @@ final class SHEpisodeDetailViewViewModel {
     
     private(set) var cellViewModels: [SectionType] = []
     
+    public func character(at index: Int) -> SHCharacter? {
+        guard let episodeData else { return nil }
+        return episodeData.characters[index]
+    }
+    
     // MARK: - Init
     init(endpointUrl: URL?) {
         self.endpointUrl = endpointUrl
@@ -40,12 +45,18 @@ final class SHEpisodeDetailViewViewModel {
         guard let episodeData else { return }
         let episode = episodeData.episode
         let characters = episodeData.characters
+        
+        var createdString = episode.created
+        if let date = SHCharacterInfoCollectionViewCellViewModel.dateFormatter.date(from: episode.created) {
+            createdString = SHCharacterInfoCollectionViewCellViewModel.shortDateFormatter.string(from: date)
+        }
+        
         cellViewModels = [
             .information(viewModels: [
                 .init(title: "Episode Name", value: episode.name),
                 .init(title: "Air Date", value: episode.airDate),
                 .init(title: "Episode", value: episode.episode),
-                .init(title: "Created", value: episode.created),
+                .init(title: "Created", value: createdString),
             ]),
             .characters(viewModels: characters.compactMap {
                 SHCharacterCollectionViewCellViewModel(
