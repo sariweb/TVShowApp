@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		851C5D5A2ADE37010081925C /* SHSettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D592ADE37010081925C /* SHSettingsViewViewModel.swift */; };
+		851C5D5C2ADE38430081925C /* SHSettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D5B2ADE38430081925C /* SHSettingsCellViewModel.swift */; };
+		851C5D5E2ADE38FB0081925C /* SHSettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D5D2ADE38FB0081925C /* SHSettingsOption.swift */; };
+		851C5D612ADE41300081925C /* SHSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D602ADE41300081925C /* SHSettingsView.swift */; };
 		853EFA9F2AA324F500F5DF86 /* SHImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFA9E2AA324F500F5DF86 /* SHImageLoader.swift */; };
 		853EFAA32AA57FF000F5DF86 /* SHCharacterPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAA22AA57FF000F5DF86 /* SHCharacterPhotoCollectionViewCell.swift */; };
 		853EFAA52AA5801600F5DF86 /* SHCharacterInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAA42AA5801600F5DF86 /* SHCharacterInfoCollectionViewCell.swift */; };
@@ -55,6 +59,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		851C5D592ADE37010081925C /* SHSettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSettingsViewViewModel.swift; sourceTree = "<group>"; };
+		851C5D5B2ADE38430081925C /* SHSettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSettingsCellViewModel.swift; sourceTree = "<group>"; };
+		851C5D5D2ADE38FB0081925C /* SHSettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSettingsOption.swift; sourceTree = "<group>"; };
+		851C5D602ADE41300081925C /* SHSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSettingsView.swift; sourceTree = "<group>"; };
 		853EFA9E2AA324F500F5DF86 /* SHImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHImageLoader.swift; sourceTree = "<group>"; };
 		853EFAA22AA57FF000F5DF86 /* SHCharacterPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		853EFAA42AA5801600F5DF86 /* SHCharacterInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterInfoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -115,6 +123,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		851C5D582ADE36DE0081925C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				851C5D592ADE37010081925C /* SHSettingsViewViewModel.swift */,
+				851C5D5B2ADE38430081925C /* SHSettingsCellViewModel.swift */,
+				851C5D5D2ADE38FB0081925C /* SHSettingsOption.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		851C5D5F2ADE41160081925C /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				851C5D602ADE41300081925C /* SHSettingsView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		853EFAA02AA57F6F00F5DF86 /* CharacterDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +267,7 @@
 		85EC40872A9A1D7400BD6C59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				851C5D5F2ADE41160081925C /* SwiftUI */,
 				853EFABA2AAC184F00F5DF86 /* Episode */,
 				853EFAB72AAAC7A400F5DF86 /* EpisodeDetails */,
 				853EFAA12AA57FB000F5DF86 /* Character */,
@@ -253,6 +280,7 @@
 		85EC40882A9A1D7D00BD6C59 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				851C5D582ADE36DE0081925C /* Settings */,
 				853EFABF2AAC197F00F5DF86 /* Episode */,
 				853EFAB62AAAC71700F5DF86 /* EpisodeDetails */,
 				853EFAA92AA5806D00F5DF86 /* Character */,
@@ -409,6 +437,7 @@
 				85EC40762A9A1C7A00BD6C59 /* SHTabBarViewController.swift in Sources */,
 				85EC40B72AA03E4A00BD6C59 /* SHCharacterDetailViewController.swift in Sources */,
 				85EC40962A9A1FB000BD6C59 /* SHCharactersViewController.swift in Sources */,
+				851C5D5C2ADE38430081925C /* SHSettingsCellViewModel.swift in Sources */,
 				853EFAB92AAAC7C700F5DF86 /* SHEpisodeDetailView.swift in Sources */,
 				85EC40BB2AA03F9000BD6C59 /* SHCharacterDetailViewViewModel.swift in Sources */,
 				85EC40A42A9B15EF00BD6C59 /* SHCharacterStatus.swift in Sources */,
@@ -421,6 +450,7 @@
 				85EC40AA2A9B30F300BD6C59 /* SHGetAllCharactersResponse.swift in Sources */,
 				853EFAA32AA57FF000F5DF86 /* SHCharacterPhotoCollectionViewCell.swift in Sources */,
 				85EC40742A9A1C7A00BD6C59 /* SceneDelegate.swift in Sources */,
+				851C5D5E2ADE38FB0081925C /* SHSettingsOption.swift in Sources */,
 				853EFABE2AAC190100F5DF86 /* SHEpisodeInfoCollectionViewCell.swift in Sources */,
 				85EC40AE2A9B3C3700BD6C59 /* SHCharacterListView.swift in Sources */,
 				853EFAB32AA980E900F5DF86 /* SHAPICacheManager.swift in Sources */,
@@ -437,7 +467,9 @@
 				85EC40BD2AA18E5D00BD6C59 /* SHFooterLoadingCollectionReusableView.swift in Sources */,
 				853EFAAB2AA580C900F5DF86 /* SHCharacterPhotoCollectionViewCellViewModel.swift in Sources */,
 				853EFABC2AAC187700F5DF86 /* SHEpisodeListView.swift in Sources */,
+				851C5D5A2ADE37010081925C /* SHSettingsViewViewModel.swift in Sources */,
 				85EC40912A9A1ECB00BD6C59 /* SHEpisode.swift in Sources */,
+				851C5D612ADE41300081925C /* SHSettingsView.swift in Sources */,
 				85EC409C2A9B086D00BD6C59 /* SHService.swift in Sources */,
 				85EC40B02A9C4F2800BD6C59 /* Extensions.swift in Sources */,
 				85EC40A02A9B09BA00BD6C59 /* SHEndpoint.swift in Sources */,
