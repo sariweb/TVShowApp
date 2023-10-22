@@ -38,7 +38,7 @@ final class SHCharacterListViewViewModel: NSObject {
     /// Fetch initial set of characters (20)
     func fetchCharacters() {
         SHService.shared.execute(
-            .listCharacterRequest,
+            .listCharactersRequest,
             expecting: SHGetAllCharactersResponse.self
         ) { [weak self] result in
             switch result {

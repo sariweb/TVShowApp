@@ -124,6 +124,7 @@ final class SHRequest {
 }
 
 extension SHRequest {
-    static let listCharacterRequest = SHRequest(endpoint: .character)
-    static let listEpisodeRequest = SHRequest(endpoint: .episode)
+    static let listCharactersRequest = SHRequest(endpoint: .character)
+    static let listEpisodesRequest = SHRequest(endpoint: .episode)
+    static let listLocationsRequest = SHRequest(endpoint: .location)
 }

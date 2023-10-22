@@ -11,6 +11,14 @@
 		851C5D5C2ADE38430081925C /* SHSettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D5B2ADE38430081925C /* SHSettingsCellViewModel.swift */; };
 		851C5D5E2ADE38FB0081925C /* SHSettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D5D2ADE38FB0081925C /* SHSettingsOption.swift */; };
 		851C5D612ADE41300081925C /* SHSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D602ADE41300081925C /* SHSettingsView.swift */; };
+		851C5D642AE52C1C0081925C /* SHLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D632AE52C1C0081925C /* SHLocationView.swift */; };
+		851C5D672AE5304A0081925C /* SHLocationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D662AE5304A0081925C /* SHLocationViewViewModel.swift */; };
+		851C5D692AE533650081925C /* SHGetAllLocationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D682AE533650081925C /* SHGetAllLocationsResponse.swift */; };
+		851C5D6B2AE5390D0081925C /* SHLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D6A2AE5390D0081925C /* SHLocationTableViewCell.swift */; };
+		851C5D6D2AE53A340081925C /* SHLocationTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D6C2AE53A340081925C /* SHLocationTableViewCellViewModel.swift */; };
+		851C5D6F2AE54E5C0081925C /* SHLocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D6E2AE54E5C0081925C /* SHLocationDetailViewController.swift */; };
+		851C5D722AE556270081925C /* SHLocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D712AE556270081925C /* SHLocationDetailView.swift */; };
+		851C5D752AE5586D0081925C /* SHLocationDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D742AE5586D0081925C /* SHLocationDetailViewViewModel.swift */; };
 		853EFA9F2AA324F500F5DF86 /* SHImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFA9E2AA324F500F5DF86 /* SHImageLoader.swift */; };
 		853EFAA32AA57FF000F5DF86 /* SHCharacterPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAA22AA57FF000F5DF86 /* SHCharacterPhotoCollectionViewCell.swift */; };
 		853EFAA52AA5801600F5DF86 /* SHCharacterInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAA42AA5801600F5DF86 /* SHCharacterInfoCollectionViewCell.swift */; };
@@ -25,7 +33,7 @@
 		853EFABC2AAC187700F5DF86 /* SHEpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFABB2AAC187700F5DF86 /* SHEpisodeListView.swift */; };
 		853EFABE2AAC190100F5DF86 /* SHEpisodeInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFABD2AAC190100F5DF86 /* SHEpisodeInfoCollectionViewCell.swift */; };
 		853EFAC12AAC19AC00F5DF86 /* SHEpisodeListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAC02AAC19AC00F5DF86 /* SHEpisodeListViewViewModel.swift */; };
-		853EFAC52AAC20FD00F5DF86 /* SHGetEpisodesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAC42AAC20FD00F5DF86 /* SHGetEpisodesResponse.swift */; };
+		853EFAC52AAC20FD00F5DF86 /* SHGetAllEpisodesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAC42AAC20FD00F5DF86 /* SHGetAllEpisodesResponse.swift */; };
 		853EFAC72AAC365D00F5DF86 /* SHSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAC62AAC365D00F5DF86 /* SHSearchViewController.swift */; };
 		853EFAC92AADBA4F00F5DF86 /* SHEpisodeInfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAC82AADBA4F00F5DF86 /* SHEpisodeInfoCollectionViewCellViewModel.swift */; };
 		85EC40722A9A1C7A00BD6C59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC40712A9A1C7A00BD6C59 /* AppDelegate.swift */; };
@@ -63,6 +71,14 @@
 		851C5D5B2ADE38430081925C /* SHSettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSettingsCellViewModel.swift; sourceTree = "<group>"; };
 		851C5D5D2ADE38FB0081925C /* SHSettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSettingsOption.swift; sourceTree = "<group>"; };
 		851C5D602ADE41300081925C /* SHSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSettingsView.swift; sourceTree = "<group>"; };
+		851C5D632AE52C1C0081925C /* SHLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHLocationView.swift; sourceTree = "<group>"; };
+		851C5D662AE5304A0081925C /* SHLocationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHLocationViewViewModel.swift; sourceTree = "<group>"; };
+		851C5D682AE533650081925C /* SHGetAllLocationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHGetAllLocationsResponse.swift; sourceTree = "<group>"; };
+		851C5D6A2AE5390D0081925C /* SHLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHLocationTableViewCell.swift; sourceTree = "<group>"; };
+		851C5D6C2AE53A340081925C /* SHLocationTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHLocationTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		851C5D6E2AE54E5C0081925C /* SHLocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHLocationDetailViewController.swift; sourceTree = "<group>"; };
+		851C5D712AE556270081925C /* SHLocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHLocationDetailView.swift; sourceTree = "<group>"; };
+		851C5D742AE5586D0081925C /* SHLocationDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHLocationDetailViewViewModel.swift; sourceTree = "<group>"; };
 		853EFA9E2AA324F500F5DF86 /* SHImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHImageLoader.swift; sourceTree = "<group>"; };
 		853EFAA22AA57FF000F5DF86 /* SHCharacterPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		853EFAA42AA5801600F5DF86 /* SHCharacterInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterInfoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -77,7 +93,7 @@
 		853EFABB2AAC187700F5DF86 /* SHEpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHEpisodeListView.swift; sourceTree = "<group>"; };
 		853EFABD2AAC190100F5DF86 /* SHEpisodeInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHEpisodeInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		853EFAC02AAC19AC00F5DF86 /* SHEpisodeListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHEpisodeListViewViewModel.swift; sourceTree = "<group>"; };
-		853EFAC42AAC20FD00F5DF86 /* SHGetEpisodesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHGetEpisodesResponse.swift; sourceTree = "<group>"; };
+		853EFAC42AAC20FD00F5DF86 /* SHGetAllEpisodesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHGetAllEpisodesResponse.swift; sourceTree = "<group>"; };
 		853EFAC62AAC365D00F5DF86 /* SHSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSearchViewController.swift; sourceTree = "<group>"; };
 		853EFAC82AADBA4F00F5DF86 /* SHEpisodeInfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHEpisodeInfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		85EC406E2A9A1C7A00BD6C59 /* TVShowApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShowApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +155,40 @@
 				851C5D602ADE41300081925C /* SHSettingsView.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		851C5D622AE52BFE0081925C /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				851C5D632AE52C1C0081925C /* SHLocationView.swift */,
+				851C5D6A2AE5390D0081925C /* SHLocationTableViewCell.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		851C5D652AE530380081925C /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				851C5D662AE5304A0081925C /* SHLocationViewViewModel.swift */,
+				851C5D6C2AE53A340081925C /* SHLocationTableViewCellViewModel.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		851C5D702AE555F90081925C /* LocationDetails */ = {
+			isa = PBXGroup;
+			children = (
+				851C5D712AE556270081925C /* SHLocationDetailView.swift */,
+			);
+			path = LocationDetails;
+			sourceTree = "<group>";
+		};
+		851C5D732AE558230081925C /* LocationDetails */ = {
+			isa = PBXGroup;
+			children = (
+				851C5D742AE5586D0081925C /* SHLocationDetailViewViewModel.swift */,
+			);
+			path = LocationDetails;
 			sourceTree = "<group>";
 		};
 		853EFAA02AA57F6F00F5DF86 /* CharacterDetails */ = {
@@ -267,6 +317,8 @@
 		85EC40872A9A1D7400BD6C59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				851C5D622AE52BFE0081925C /* Location */,
+				851C5D702AE555F90081925C /* LocationDetails */,
 				851C5D5F2ADE41160081925C /* SwiftUI */,
 				853EFABA2AAC184F00F5DF86 /* Episode */,
 				853EFAB72AAAC7A400F5DF86 /* EpisodeDetails */,
@@ -280,6 +332,8 @@
 		85EC40882A9A1D7D00BD6C59 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				851C5D652AE530380081925C /* Location */,
+				851C5D732AE558230081925C /* LocationDetails */,
 				851C5D582ADE36DE0081925C /* Settings */,
 				853EFABF2AAC197F00F5DF86 /* Episode */,
 				853EFAB62AAAC71700F5DF86 /* EpisodeDetails */,
@@ -349,7 +403,8 @@
 			isa = PBXGroup;
 			children = (
 				85EC40A92A9B30F300BD6C59 /* SHGetAllCharactersResponse.swift */,
-				853EFAC42AAC20FD00F5DF86 /* SHGetEpisodesResponse.swift */,
+				853EFAC42AAC20FD00F5DF86 /* SHGetAllEpisodesResponse.swift */,
+				851C5D682AE533650081925C /* SHGetAllLocationsResponse.swift */,
 			);
 			path = APIResponseTypes;
 			sourceTree = "<group>";
@@ -360,6 +415,7 @@
 				85EC40B62AA03E4A00BD6C59 /* SHCharacterDetailViewController.swift */,
 				853EFAB02AA979F400F5DF86 /* SHEpisodeDetailViewController.swift */,
 				853EFAC62AAC365D00F5DF86 /* SHSearchViewController.swift */,
+				851C5D6E2AE54E5C0081925C /* SHLocationDetailViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -437,6 +493,7 @@
 				85EC40762A9A1C7A00BD6C59 /* SHTabBarViewController.swift in Sources */,
 				85EC40B72AA03E4A00BD6C59 /* SHCharacterDetailViewController.swift in Sources */,
 				85EC40962A9A1FB000BD6C59 /* SHCharactersViewController.swift in Sources */,
+				851C5D722AE556270081925C /* SHLocationDetailView.swift in Sources */,
 				851C5D5C2ADE38430081925C /* SHSettingsCellViewModel.swift in Sources */,
 				853EFAB92AAAC7C700F5DF86 /* SHEpisodeDetailView.swift in Sources */,
 				85EC40BB2AA03F9000BD6C59 /* SHCharacterDetailViewViewModel.swift in Sources */,
@@ -444,6 +501,7 @@
 				853EFA9F2AA324F500F5DF86 /* SHImageLoader.swift in Sources */,
 				85EC40B92AA03F5E00BD6C59 /* SHCharacterDetailView.swift in Sources */,
 				85EC409E2A9B089100BD6C59 /* SHRequest.swift in Sources */,
+				851C5D752AE5586D0081925C /* SHLocationDetailViewViewModel.swift in Sources */,
 				85EC40AC2A9B3BA000BD6C59 /* SHCharacterListViewViewModel.swift in Sources */,
 				85EC40722A9A1C7A00BD6C59 /* AppDelegate.swift in Sources */,
 				85EC40982A9A1FBC00BD6C59 /* SHEpisodesViewController.swift in Sources */,
@@ -453,17 +511,20 @@
 				851C5D5E2ADE38FB0081925C /* SHSettingsOption.swift in Sources */,
 				853EFABE2AAC190100F5DF86 /* SHEpisodeInfoCollectionViewCell.swift in Sources */,
 				85EC40AE2A9B3C3700BD6C59 /* SHCharacterListView.swift in Sources */,
+				851C5D692AE533650081925C /* SHGetAllLocationsResponse.swift in Sources */,
 				853EFAB32AA980E900F5DF86 /* SHAPICacheManager.swift in Sources */,
 				853EFAA72AA5803500F5DF86 /* SHCharacterEpisodeCollectionViewCell.swift in Sources */,
 				85EC408F2A9A1EBD00BD6C59 /* SHCharacter.swift in Sources */,
 				853EFAC12AAC19AC00F5DF86 /* SHEpisodeListViewViewModel.swift in Sources */,
 				853EFAC92AADBA4F00F5DF86 /* SHEpisodeInfoCollectionViewCellViewModel.swift in Sources */,
+				851C5D672AE5304A0081925C /* SHLocationViewViewModel.swift in Sources */,
 				85EC409A2A9A1FC900BD6C59 /* SHSettingsViewController.swift in Sources */,
 				853EFAB52AAAC70F00F5DF86 /* SHEpisodeDetailViewViewModel.swift in Sources */,
 				853EFAAD2AA580D900F5DF86 /* SHCharacterInfoCollectionViewCellViewModel.swift in Sources */,
-				853EFAC52AAC20FD00F5DF86 /* SHGetEpisodesResponse.swift in Sources */,
+				853EFAC52AAC20FD00F5DF86 /* SHGetAllEpisodesResponse.swift in Sources */,
 				853EFAC72AAC365D00F5DF86 /* SHSearchViewController.swift in Sources */,
 				85EC40A22A9B10F500BD6C59 /* SHOrigin.swift in Sources */,
+				851C5D642AE52C1C0081925C /* SHLocationView.swift in Sources */,
 				85EC40BD2AA18E5D00BD6C59 /* SHFooterLoadingCollectionReusableView.swift in Sources */,
 				853EFAAB2AA580C900F5DF86 /* SHCharacterPhotoCollectionViewCellViewModel.swift in Sources */,
 				853EFABC2AAC187700F5DF86 /* SHEpisodeListView.swift in Sources */,
@@ -471,13 +532,16 @@
 				85EC40912A9A1ECB00BD6C59 /* SHEpisode.swift in Sources */,
 				851C5D612ADE41300081925C /* SHSettingsView.swift in Sources */,
 				85EC409C2A9B086D00BD6C59 /* SHService.swift in Sources */,
+				851C5D6B2AE5390D0081925C /* SHLocationTableViewCell.swift in Sources */,
 				85EC40B02A9C4F2800BD6C59 /* Extensions.swift in Sources */,
 				85EC40A02A9B09BA00BD6C59 /* SHEndpoint.swift in Sources */,
 				85EC40942A9A1FA200BD6C59 /* SHLocationsViewController.swift in Sources */,
 				85EC40B42A9D9BD900BD6C59 /* SHCharacterCollectionViewCellViewModel.swift in Sources */,
 				85EC408D2A9A1EAF00BD6C59 /* SHLocation.swift in Sources */,
+				851C5D6F2AE54E5C0081925C /* SHLocationDetailViewController.swift in Sources */,
 				85EC40B22A9D9A2400BD6C59 /* SHCharacterCollectionViewCell.swift in Sources */,
 				853EFAB12AA979F400F5DF86 /* SHEpisodeDetailViewController.swift in Sources */,
+				851C5D6D2AE53A340081925C /* SHLocationTableViewCellViewModel.swift in Sources */,
 				85EC40A62A9B189E00BD6C59 /* SHCharacterGender.swift in Sources */,
 				853EFAA52AA5801600F5DF86 /* SHCharacterInfoCollectionViewCell.swift in Sources */,
 				853EFAAF2AA580EE00F5DF86 /* SHCharacterEpisodeCollectionViewCellViewModel.swift in Sources */,

@@ -49,7 +49,7 @@ final class SHEpisodeListViewViewModel: NSObject {
     /// Fetch initial set of episodes (20)
     func fetchEpisodes() {
         SHService.shared.execute(
-            .listEpisodeRequest,
+            .listEpisodesRequest,
             expecting: SHGetAllEpisodesResponse.self
         ) { [weak self] result in
             switch result {
