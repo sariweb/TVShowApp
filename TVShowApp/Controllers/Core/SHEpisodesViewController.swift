@@ -41,7 +41,9 @@ final class SHEpisodesViewController: UIViewController {
     }
             
     @objc private func didTapSearch() {
-        
+        let vc = SHSearchViewController(config: SHSearchViewController.Config(type: .episode))
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
