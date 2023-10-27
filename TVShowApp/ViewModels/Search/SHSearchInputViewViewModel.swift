@@ -8,8 +8,51 @@
 import Foundation
 
 final class SHSearchInputViewViewModel {
+    private let type: SHSearchViewController.Config.`Type`
     
-    init() {
+    enum DynamicOption: String {
+        case status = "Status"
+        case genre = "Genre"
+        case locationType = "Location Type"
     }
     
+    // MARK: - Init
+    
+    init(type: SHSearchViewController.Config.`Type`    ) {
+        self.type = type
+    }
+    
+    
+    // MARK: - Public
+    
+    public var hasDynamicOptions: Bool {
+        switch type {
+            case .character, .location:
+                return true
+            case .episode:
+                return false
+        }
+    }
+    
+    public var options: [DynamicOption] {
+        switch type {
+            case .character:
+                return [.status, .genre]
+            case .episode:
+                return []
+            case .location:
+                return [.locationType]
+        }
+    }
+    
+    public var searchPlaceholderText: String {
+        switch type {
+            case .character:
+                return "Character Name"
+            case .episode:
+                return "Episode Title"
+            case .location:
+                return "Location Name"
+        }
+    }
 }

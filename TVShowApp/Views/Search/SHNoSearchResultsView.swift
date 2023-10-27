@@ -29,6 +29,8 @@ final class SHNoSearchResultsView: UIView {
         return label
     }()
     
+    // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +44,8 @@ final class SHNoSearchResultsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Private
     
     private func addConstraints() {
         NSLayoutConstraint.activate([

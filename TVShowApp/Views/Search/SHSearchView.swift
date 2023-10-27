@@ -10,27 +10,39 @@ import UIKit
 final class SHSearchView: UIView {
     private let viewModel: SHSearchViewViewModel
     
+    private let searchInputView = SHSearchInputView()
     private let noResultsView = SHNoSearchResultsView()
+    
+    // MARK: - Init
     
     init(frame: CGRect, viewModel: SHSearchViewViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
         backgroundColor = .systemBackground
         translatesAutoresizingMaskIntoConstraints = false
-        addSubviews(noResultsView)
+        addSubviews(noResultsView, searchInputView)
         addConstraints()
+        
+        searchInputView.configure(with: .init(type: viewModel.config.type))
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            noResultsView.topAnchor.constraint(equalTo: topAnchor),
-            noResultsView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            noResultsView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            noResultsView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            searchInputView.topAnchor.constraint(equalTo: topAnchor),
+            searchInputView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            searchInputView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            searchInputView.heightAnchor.constraint(equalToConstant: 110),
+            
+            noResultsView.widthAnchor.constraint(equalToConstant: 150),
+            noResultsView.heightAnchor.constraint(equalToConstant: 150),
+            noResultsView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            noResultsView.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
 }
