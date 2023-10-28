@@ -57,12 +57,20 @@ final class SHSearchViewController: UIViewController {
         title = viewModel.config.type.title
         view.backgroundColor = .systemBackground
         view.addSubview(searchView)
+        searchView.delegate = self
         addConstraints()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search",
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(didTapExecuteSearch))
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchView.presentKeyboard()
+    }
+    
+    // MARK: - Private
     
     @objc private func didTapExecuteSearch() {
 //        viewModel.executeSearch()
@@ -76,5 +84,13 @@ final class SHSearchViewController: UIViewController {
             searchView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             searchView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
         ])
+    }
+}
+
+// MARK: - SHSearchViewDelegate
+
+extension SHSearchViewController: SHSearchViewDelegate {
+    func shSearchView(_ inputView: SHSearchView, didSelect option: SearchOption) {
+        print("Should present option picker")
     }
 }

@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol SHSearchViewDelegate: AnyObject {
+    func shSearchView(_ inputView: SHSearchView, didSelect option: SearchOption)
+}
+
 final class SHSearchView: UIView {
+    weak var delegate: SHSearchViewDelegate?
+    
     private let viewModel: SHSearchViewViewModel
     
     private let searchInputView = SHSearchInputView()
@@ -24,6 +30,7 @@ final class SHSearchView: UIView {
         addConstraints()
         
         searchInputView.configure(with: .init(type: viewModel.config.type))
+        searchInputView.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -37,13 +44,27 @@ final class SHSearchView: UIView {
             searchInputView.topAnchor.constraint(equalTo: topAnchor),
             searchInputView.leadingAnchor.constraint(equalTo: leadingAnchor),
             searchInputView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            searchInputView.heightAnchor.constraint(equalToConstant: 110),
+            searchInputView.heightAnchor.constraint(equalToConstant: viewModel.config.type == .episode ? 55 : 110),
             
             noResultsView.widthAnchor.constraint(equalToConstant: 150),
             noResultsView.heightAnchor.constraint(equalToConstant: 150),
             noResultsView.centerXAnchor.constraint(equalTo: centerXAnchor),
             noResultsView.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
+    }
+    
+    // MARK: - Public
+    
+    public func presentKeyboard() {
+        searchInputView.presentKeyboard()
+    }
+}
+
+// MARK: - SHSearchInputViewDelegate
+
+extension SHSearchView: SHSearchInputViewDelegate {
+    func shSearchInputView(_ inputView: SHSearchInputView, didSelect option: SearchOption) {
+        delegate?.shSearchView(self, didSelect: option)
     }
 }
 

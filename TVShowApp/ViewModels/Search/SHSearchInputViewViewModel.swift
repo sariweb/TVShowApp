@@ -56,3 +56,5 @@ final class SHSearchInputViewViewModel {
         }
     }
 }
+
+typealias SearchOption = SHSearchInputViewViewModel.DynamicOption
