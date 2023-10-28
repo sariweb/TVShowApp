@@ -91,6 +91,11 @@ final class SHSearchViewController: UIViewController {
 
 extension SHSearchViewController: SHSearchViewDelegate {
     func shSearchView(_ inputView: SHSearchView, didSelect option: SearchOption) {
-        print("Should present option picker")
+        let vc = SHSearchOptionPickerViewController(option: option) { selection in
+            print("Did select: \(selection)")
+        }
+        vc.sheetPresentationController?.detents = [.medium()]
+        vc.sheetPresentationController?.prefersGrabberVisible = true
+        present(vc, animated: true)
     }
 }

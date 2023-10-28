@@ -14,6 +14,17 @@ final class SHSearchInputViewViewModel {
         case status = "Status"
         case genre = "Genre"
         case locationType = "Location Type"
+        
+        var choices: [String] {
+            switch self {
+                case .status:
+                    return ["alive", "dead", "unknown"]
+                case .genre:
+                    return ["male", "female", "genderless", "unknown"]
+                case .locationType:
+                    return ["cluster", "planet", "microverse"]
+            }
+        }
     }
     
     // MARK: - Init
