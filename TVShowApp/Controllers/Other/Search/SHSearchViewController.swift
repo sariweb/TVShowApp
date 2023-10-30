@@ -73,8 +73,7 @@ final class SHSearchViewController: UIViewController {
     // MARK: - Private
     
     @objc private func didTapExecuteSearch() {
-//        viewModel.executeSearch()
-        print("executeSearch")
+        viewModel.executeSearch()
     }
 
     private func addConstraints() {
@@ -91,8 +90,10 @@ final class SHSearchViewController: UIViewController {
 
 extension SHSearchViewController: SHSearchViewDelegate {
     func shSearchView(_ inputView: SHSearchView, didSelect option: SearchOption) {
-        let vc = SHSearchOptionPickerViewController(option: option) { selection in
-            print("Did select: \(selection)")
+        let vc = SHSearchOptionPickerViewController(option: option) { [weak self] selection in
+            DispatchQueue.main.async {
+                self?.viewModel.set(value: selection, for: option)
+            }
         }
         vc.sheetPresentationController?.detents = [.medium()]
         vc.sheetPresentationController?.prefersGrabberVisible = true

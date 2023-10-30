@@ -40,6 +40,8 @@ class SHSearchOptionPickerViewController: UIViewController {
         setupTable()
     }
     
+    // MARK: - Private
+    
     private func setupTable() {
         view.addSubviews(tableView)
         tableView.delegate = self
@@ -54,6 +56,8 @@ class SHSearchOptionPickerViewController: UIViewController {
     }
 
 }
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension SHSearchOptionPickerViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
