@@ -12,6 +12,7 @@ final class SHSearchViewViewModel {
     
     private var optionMap: [SearchOption: String] = [:]
     private var optionMapUpdateBlock: (((SearchOption, String)) -> Void)?
+    private var searchResultsHandler: (() -> Void)?
     private var searchText = ""
     
     // MARK: - Init
@@ -34,11 +35,46 @@ final class SHSearchViewViewModel {
         self.optionMapUpdateBlock = block
     }
     
+    public func registerSearchResultsHandler (
+        _ block: @escaping () -> Void
+    ) {
+        self.searchResultsHandler = block
+    }
+    
     public func executeSearch() {
-        // Create request
-        // Send API call
+        // test search
+        searchText = "Rick"
+        
+        // build args
+        var queryParams: [URLQueryItem] = [
+            URLQueryItem(name: "name", value: searchText)
+        ]
+        
+        // add options
+        queryParams.append(contentsOf: optionMap.enumerated().map({ _, element in
+            let key: SearchOption = element.key
+            let value: String = element.value
+            return URLQueryItem(name: key.queryArgument, value: value)
+        }))
+        
+        // make request
+        let request = SHRequest(
+            endpoint: config.type.endpoint,
+            queryParameters: queryParams
+        )
+        
+        // execute request
+        SHService.shared.execute(request, expecting: SHGetAllCharactersResponse.self) { result in
+            switch result {
+                case .success(let model):
+                    print("Search results found: \(model.results.count)")
+                case .failure:
+                    break
+            }
+        }
+        
         // Notify view of results / no results / error
-        print("executeSearch")
+        
     }
     
     public func set(query text: String) {

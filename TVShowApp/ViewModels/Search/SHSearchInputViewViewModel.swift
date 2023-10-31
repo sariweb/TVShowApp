@@ -15,6 +15,17 @@ final class SHSearchInputViewViewModel {
         case genre = "Genre"
         case locationType = "Location Type"
         
+        var queryArgument: String {
+            switch self {
+                case .status:
+                    return "status"
+                case .genre:
+                    return "genre"
+                case .locationType:
+                    return "type"
+            }
+        }
+        
         var choices: [String] {
             switch self {
                 case .status:
