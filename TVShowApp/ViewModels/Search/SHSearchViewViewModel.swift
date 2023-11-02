@@ -12,13 +12,59 @@ final class SHSearchViewViewModel {
     
     private var optionMap: [SearchOption: String] = [:]
     private var optionMapUpdateBlock: (((SearchOption, String)) -> Void)?
-    private var searchResultsHandler: (() -> Void)?
+    private var searchResultsHandler: ((SHSearchResultsViewModel) -> Void)?
     private var searchText = ""
     
     // MARK: - Init
     
     init(config: SHSearchViewController.Config) {
         self.config = config
+    }
+    
+    // MARK: - Private
+    
+    private func makeSearchAPICall<T: Codable>(_ request: SHRequest, _ type: T.Type) {
+        // execute request
+        SHService.shared.execute(request, expecting: type) { [weak self] result in
+            switch result {
+                case .success(let model):
+                    // Episodes, Characters: collection view; Locations: table view
+                    self?.processSearchResults(model)
+                    break
+                case .failure:
+                    print("Failed api call")
+            }
+        }
+    }
+    
+    private func processSearchResults(_ model: Codable) {
+        var resultsVM: SHSearchResultsViewModel?
+        
+        if let charactersResults = model as? SHGetAllCharactersResponse {
+            resultsVM = .characters(charactersResults.results.compactMap {
+                return SHCharacterCollectionViewCellViewModel(
+                    name: $0.name,
+                    status: $0.status,
+                    imageUrl: URL(string: $0.image)
+                )
+            })
+        } else if let episodesResults = model as? SHGetAllEpisodesResponse {
+            resultsVM = .episodes(episodesResults.results.compactMap {
+                return SHCharacterEpisodeCollectionViewCellViewModel(episodeDataUrl: URL(string: $0.url))
+            })
+        } else if let locationsResults = model as? SHGetAllLocationsResponse {
+            resultsVM = .locations(locationsResults.results.compactMap {
+                return SHLocationTableViewCellViewModel(location: $0)
+            })
+        } else {
+            // error
+        }
+        
+        if let results = resultsVM {
+            searchResultsHandler?(results)
+        } else {
+            // error
+        }
     }
     
     // MARK: - Public
@@ -36,15 +82,12 @@ final class SHSearchViewViewModel {
     }
     
     public func registerSearchResultsHandler (
-        _ block: @escaping () -> Void
+        _ block: @escaping (SHSearchResultsViewModel) -> Void
     ) {
         self.searchResultsHandler = block
     }
     
     public func executeSearch() {
-        // test search
-        print("Search text: \(searchText)")
-        
         // build args
         var queryParams: [URLQueryItem] = [
             URLQueryItem(name: "name", value: searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
@@ -63,21 +106,25 @@ final class SHSearchViewViewModel {
             queryParameters: queryParams
         )
         
-        print(request.url?.absoluteString)
         
-        // execute request
-        SHService.shared.execute(request, expecting: SHGetAllCharactersResponse.self) { result in
-            switch result {
-                case .success(let model):
-                    print("Search results found: \(model.results.count)")
-                case .failure:
-                    break
-            }
+        switch config.type.endpoint {
+            case .character:
+                makeSearchAPICall(request, SHGetAllCharactersResponse.self)
+            case .episode:
+                makeSearchAPICall(request, SHGetAllEpisodesResponse.self)
+            case .location:
+                makeSearchAPICall(request, SHGetAllLocationsResponse.self)
         }
+        
+        
+        
+        
         
         // Notify view of results / no results / error
         
     }
+    
+    
     
     public func set(query text: String) {
         self.searchText = text
