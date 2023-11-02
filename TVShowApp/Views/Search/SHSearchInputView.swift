@@ -9,8 +9,11 @@ import UIKit
 
 protocol SHSearchInputViewDelegate: AnyObject {
     func shSearchInputView(_ inputView: SHSearchInputView, didSelect option: SearchOption)
+    func shSearchInputView(_ inputView: SHSearchInputView, textDidChange searchText: String)
+    func shSearchInputViewDidTapSearchButton(_ inputView: SHSearchInputView)
 }
 
+/// View for top part of search screen with search bar
 final class SHSearchInputView: UIView {
     weak var delegate: SHSearchInputViewDelegate?
     
@@ -39,6 +42,8 @@ final class SHSearchInputView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         addSubviews(searchBar)
         addConstraints()
+        
+        searchBar.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -139,5 +144,20 @@ final class SHSearchInputView: UIView {
             ,
             for: .normal
         )
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension SHSearchInputView: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // notify delegate search text changed
+        delegate?.shSearchInputView(self, textDidChange: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // notify delegate search bar btn tapped
+        searchBar.resignFirstResponder()
+        delegate?.shSearchInputViewDidTapSearchButton(self)
     }
 }

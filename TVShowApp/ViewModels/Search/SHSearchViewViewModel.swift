@@ -43,11 +43,11 @@ final class SHSearchViewViewModel {
     
     public func executeSearch() {
         // test search
-        searchText = "Rick"
+        print("Search text: \(searchText)")
         
         // build args
         var queryParams: [URLQueryItem] = [
-            URLQueryItem(name: "name", value: searchText)
+            URLQueryItem(name: "name", value: searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
         ]
         
         // add options
@@ -62,6 +62,8 @@ final class SHSearchViewViewModel {
             endpoint: config.type.endpoint,
             queryParameters: queryParams
         )
+        
+        print(request.url?.absoluteString)
         
         // execute request
         SHService.shared.execute(request, expecting: SHGetAllCharactersResponse.self) { result in

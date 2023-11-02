@@ -67,8 +67,17 @@ final class SHSearchView: UIView {
 // MARK: - SHSearchInputViewDelegate
 
 extension SHSearchView: SHSearchInputViewDelegate {
+    
+    func shSearchInputView(_ inputView: SHSearchInputView, textDidChange searchText: String) {
+        viewModel.set(query: searchText)
+    }
+    
     func shSearchInputView(_ inputView: SHSearchInputView, didSelect option: SearchOption) {
         delegate?.shSearchView(self, didSelect: option)
+    }
+
+    func shSearchInputViewDidTapSearchButton(_ inputView: SHSearchInputView) {
+        viewModel.executeSearch()
     }
 }
 
