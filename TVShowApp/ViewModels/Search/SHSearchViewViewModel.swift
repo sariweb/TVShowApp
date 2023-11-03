@@ -13,6 +13,7 @@ final class SHSearchViewViewModel {
     private var optionMap: [SearchOption: String] = [:]
     private var optionMapUpdateBlock: (((SearchOption, String)) -> Void)?
     private var searchResultsHandler: ((SHSearchResultsViewModel) -> Void)?
+    private var noResultsHandler: (() -> Void)?
     private var searchText = ""
     
     // MARK: - Init
@@ -32,7 +33,7 @@ final class SHSearchViewViewModel {
                     self?.processSearchResults(model)
                     break
                 case .failure:
-                    print("Failed api call")
+                    self?.handleNoResults()
             }
         }
     }
@@ -64,7 +65,12 @@ final class SHSearchViewViewModel {
             searchResultsHandler?(results)
         } else {
             // error
+            handleNoResults()
         }
+    }
+    
+    private func handleNoResults() {
+        noResultsHandler?()
     }
     
     // MARK: - Public
@@ -85,6 +91,12 @@ final class SHSearchViewViewModel {
         _ block: @escaping (SHSearchResultsViewModel) -> Void
     ) {
         self.searchResultsHandler = block
+    }
+    
+    public func registerNoResultsHandler (
+        _ block: @escaping () -> Void
+    ) {
+        self.noResultsHandler = block
     }
     
     public func executeSearch() {

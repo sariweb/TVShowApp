@@ -16,8 +16,11 @@ final class SHSearchView: UIView {
     
     private let viewModel: SHSearchViewViewModel
     
+    // MARK: - Subviews
+    
     private let searchInputView = SHSearchInputView()
     private let noResultsView = SHNoSearchResultsView()
+    private let resultsView = SHSearchResultsView()
     
     // MARK: - Init
     
@@ -26,19 +29,13 @@ final class SHSearchView: UIView {
         super.init(frame: frame)
         backgroundColor = .systemBackground
         translatesAutoresizingMaskIntoConstraints = false
-        addSubviews(noResultsView, searchInputView)
+        addSubviews(resultsView, noResultsView, searchInputView)
         addConstraints()
         
         searchInputView.configure(with: .init(type: viewModel.config.type))
         searchInputView.delegate = self
         
-        viewModel.registerOptionChangeBlock { tuple in
-            self.searchInputView.update(option: tuple.0, value: tuple.1)
-        }
-        
-        viewModel.registerSearchResultsHandler { results in
-            print(results)
-        }
+        setupHandlers(viewModel: viewModel)
     }
     
     required init?(coder: NSCoder) {
@@ -47,13 +44,43 @@ final class SHSearchView: UIView {
     
     // MARK: - Private
     
+    private func setupHandlers(viewModel: SHSearchViewViewModel) {
+        viewModel.registerOptionChangeBlock { tuple in
+            self.searchInputView.update(option: tuple.0, value: tuple.1)
+        }
+        
+        viewModel.registerSearchResultsHandler { [weak self] results in
+            DispatchQueue.main.async {
+                self?.noResultsView.isHidden = true
+                self?.resultsView.configure(with: results)
+                self?.resultsView.isHidden = false
+            }
+        }
+        
+        viewModel.registerNoResultsHandler { [weak self] in
+            DispatchQueue.main.async {
+                self?.noResultsView.isHidden = false
+                self?.resultsView.isHidden = true
+            }
+        }
+    }
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
+            // Search input view
             searchInputView.topAnchor.constraint(equalTo: topAnchor),
             searchInputView.leadingAnchor.constraint(equalTo: leadingAnchor),
             searchInputView.trailingAnchor.constraint(equalTo: trailingAnchor),
             searchInputView.heightAnchor.constraint(equalToConstant: viewModel.config.type == .episode ? 55 : 110),
             
+            // Results view
+            resultsView.topAnchor.constraint(equalTo: searchInputView.bottomAnchor),
+            resultsView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            resultsView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            resultsView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            
+            // No results view
             noResultsView.widthAnchor.constraint(equalToConstant: 150),
             noResultsView.heightAnchor.constraint(equalToConstant: 150),
             noResultsView.centerXAnchor.constraint(equalTo: centerXAnchor),

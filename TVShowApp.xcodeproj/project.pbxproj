@@ -27,6 +27,7 @@
 		851C5D832AEA15AE0081925C /* SHSearchInputViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D822AEA15AE0081925C /* SHSearchInputViewViewModel.swift */; };
 		851C5D852AECEEEC0081925C /* SHSearchOptionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D842AECEEEC0081925C /* SHSearchOptionPickerViewController.swift */; };
 		851C5D882AF34BDF0081925C /* SHSearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D872AF34BDF0081925C /* SHSearchResultsViewModel.swift */; };
+		851C5D8A2AF494890081925C /* SHSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C5D892AF494890081925C /* SHSearchResultsView.swift */; };
 		853EFA9F2AA324F500F5DF86 /* SHImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFA9E2AA324F500F5DF86 /* SHImageLoader.swift */; };
 		853EFAA32AA57FF000F5DF86 /* SHCharacterPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAA22AA57FF000F5DF86 /* SHCharacterPhotoCollectionViewCell.swift */; };
 		853EFAA52AA5801600F5DF86 /* SHCharacterInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853EFAA42AA5801600F5DF86 /* SHCharacterInfoCollectionViewCell.swift */; };
@@ -95,6 +96,7 @@
 		851C5D822AEA15AE0081925C /* SHSearchInputViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSearchInputViewViewModel.swift; sourceTree = "<group>"; };
 		851C5D842AECEEEC0081925C /* SHSearchOptionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSearchOptionPickerViewController.swift; sourceTree = "<group>"; };
 		851C5D872AF34BDF0081925C /* SHSearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSearchResultsViewModel.swift; sourceTree = "<group>"; };
+		851C5D892AF494890081925C /* SHSearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSearchResultsView.swift; sourceTree = "<group>"; };
 		853EFA9E2AA324F500F5DF86 /* SHImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHImageLoader.swift; sourceTree = "<group>"; };
 		853EFAA22AA57FF000F5DF86 /* SHCharacterPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		853EFAA42AA5801600F5DF86 /* SHCharacterInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCharacterInfoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				851C5D772AEA11370081925C /* SHSearchView.swift */,
 				851C5D7C2AEA14920081925C /* SHNoSearchResultsView.swift */,
 				851C5D802AEA15840081925C /* SHSearchInputView.swift */,
+				851C5D892AF494890081925C /* SHSearchResultsView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				85EC409C2A9B086D00BD6C59 /* SHService.swift in Sources */,
 				851C5D6B2AE5390D0081925C /* SHLocationTableViewCell.swift in Sources */,
 				85EC40B02A9C4F2800BD6C59 /* Extensions.swift in Sources */,
+				851C5D8A2AF494890081925C /* SHSearchResultsView.swift in Sources */,
 				85EC40A02A9B09BA00BD6C59 /* SHEndpoint.swift in Sources */,
 				85EC40942A9A1FA200BD6C59 /* SHLocationsViewController.swift in Sources */,
 				85EC40B42A9D9BD900BD6C59 /* SHCharacterCollectionViewCellViewModel.swift in Sources */,
