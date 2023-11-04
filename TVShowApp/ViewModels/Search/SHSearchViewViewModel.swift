@@ -15,6 +15,7 @@ final class SHSearchViewViewModel {
     private var searchResultsHandler: ((SHSearchResultsViewModel) -> Void)?
     private var noResultsHandler: (() -> Void)?
     private var searchText = ""
+    private var searchResultsModel: Codable?
     
     // MARK: - Init
     
@@ -62,6 +63,7 @@ final class SHSearchViewViewModel {
         }
         
         if let results = resultsVM {
+            self.searchResultsModel = model
             searchResultsHandler?(results)
         } else {
             // error
@@ -140,5 +142,13 @@ final class SHSearchViewViewModel {
     
     public func set(query text: String) {
         self.searchText = text
+    }
+    
+    public func locationSearchResults(at index: Int) -> SHLocation? {
+        guard let searchModel = searchResultsModel as? SHGetAllLocationsResponse else {
+            return nil
+        }
+        
+        return searchModel.results[index]
     }
 }

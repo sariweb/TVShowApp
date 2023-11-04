@@ -9,6 +9,7 @@ import UIKit
 
 protocol SHSearchViewDelegate: AnyObject {
     func shSearchView(_ inputView: SHSearchView, didSelect option: SearchOption)
+    func shSearchView(_ inputView: SHSearchView, didSelect location: SHLocation)
 }
 
 final class SHSearchView: UIView {
@@ -34,6 +35,7 @@ final class SHSearchView: UIView {
         
         searchInputView.configure(with: .init(type: viewModel.config.type))
         searchInputView.delegate = self
+        resultsView.delegate = self
         
         setupHandlers(viewModel: viewModel)
     }
@@ -109,6 +111,13 @@ extension SHSearchView: SHSearchInputViewDelegate {
 
     func shSearchInputViewDidTapSearchButton(_ inputView: SHSearchInputView) {
         viewModel.executeSearch()
+    }
+}
+
+extension SHSearchView: SHSearchResultsViewDelegate {
+    func shSearchResultsView(_ resultsView: SHSearchResultsView, didTapLocationAt index: Int) {
+        guard let locationModel = viewModel.locationSearchResults(at: index) else { return }
+        delegate?.shSearchView(self, didSelect: locationModel)
     }
 }
 

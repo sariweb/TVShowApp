@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol SHSearchResultsViewDelegate: AnyObject {
+    func shSearchResultsView(_ resultsView: SHSearchResultsView, didTapLocationAt index: Int)
+}
+
 /// Shows search results UI (table or collection as needed)
 final class SHSearchResultsView: UIView {
+    weak var delegate: SHSearchResultsViewDelegate?
+    
     private var viewModel: SHSearchResultsViewModel? {
         didSet {
             processViewModel()
@@ -25,10 +31,11 @@ final class SHSearchResultsView: UIView {
         return view
     }()
     
+    private var locationCellViewModels: [SHLocationTableViewCellViewModel] = []
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
-        
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         isHidden = true
@@ -49,8 +56,6 @@ final class SHSearchResultsView: UIView {
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
-        
-        tableView.backgroundColor = .systemBlue
     }
     
     private func processViewModel() {
@@ -62,7 +67,7 @@ final class SHSearchResultsView: UIView {
             case .episodes(let viewModels):
                 setupCoolectionView()
             case .locations(let viewModels):
-                setupTableView()
+                setupTableView(viewModels: viewModels)
         }
     }
     
@@ -70,8 +75,12 @@ final class SHSearchResultsView: UIView {
         
     }
     
-    private func setupTableView() {
+    private func setupTableView(viewModels: [SHLocationTableViewCellViewModel]) {
         tableView.isHidden = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.locationCellViewModels = viewModels
+        tableView.reloadData()
     }
     
     // MARK: - Public
@@ -82,3 +91,22 @@ final class SHSearchResultsView: UIView {
     
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
+extension SHSearchResultsView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return locationCellViewModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SHLocationTableViewCell.identifier, for: indexPath) as? SHLocationTableViewCell else { fatalError("Failed dequeue SHLocationTableViewCell") }
+        let viewModel = locationCellViewModels[indexPath.row]
+        cell.configure(with: viewModel)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.shSearchResultsView(self, didTapLocationAt: indexPath.row)
+    }
+}

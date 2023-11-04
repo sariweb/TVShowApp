@@ -100,6 +100,12 @@ final class SHSearchViewController: UIViewController {
 // MARK: - SHSearchViewDelegate
 
 extension SHSearchViewController: SHSearchViewDelegate {
+    func shSearchView(_ inputView: SHSearchView, didSelect location: SHLocation) {
+        let vc = SHLocationDetailViewController(location: location)
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func shSearchView(_ inputView: SHSearchView, didSelect option: SearchOption) {
         let vc = SHSearchOptionPickerViewController(option: option) { [weak self] selection in
             DispatchQueue.main.async {
